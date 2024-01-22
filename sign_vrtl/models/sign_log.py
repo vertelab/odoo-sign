@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 
 from hashlib import sha256
 from json import dumps
