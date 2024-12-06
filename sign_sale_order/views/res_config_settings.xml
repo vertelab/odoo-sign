@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.project (in sale_order_sign)</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90" />
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div id="product_configurator" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="sale_order_sign_template_setting" groups="sign_oca.sign_oca_group_admin">
+                    <div class="o_setting_right_pane">
+                        <span class="o_form_label">Task Sign</span>
+                        <div class="text-muted">
+                            Define a template to enable automatic sign requests for the task customer
+                        </div>
+                        <div class="row mt16">
+                            <label
+                                for="sale_order_sign_template_id"
+                                string="Sign Template"
+                                class="col-lg-4 o_light_label"
+                            />
+                            <field
+                                name="sale_order_sign_template_id"
+                                options="{'no_create': True}"
+                                class="oe_inline"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+</odoo>
