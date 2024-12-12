@@ -9,24 +9,24 @@
     </record>
 
     <record id="sign_template_sale_order_customer_demo_item" model="sign.oca.template.item">
-        <field name="template_id" ref="sign_sale_order.sign_template_sale_order_demo"/>
+        <field name="template_id" ref="sign_report.sign_template_sale_order_demo"/>
         <field name="field_id" ref="sign_oca.sign_field_signature" />
-        <field name="role_id" ref="sign_sale_order.sign_role_sale_order_customer"/>
+        <field name="role_id" ref="sign_report.sign_role_sale_order_customer"/>
         <field name="page">1</field>
-        <field name="position_x">10</field>
-        <field name="position_y">10</field>
+        <field name="position_x">5</field>
+        <field name="position_y">85</field>
         <field name="width">30</field>
         <field name="height">4</field>
         <field name="required" eval="True" />
     </record>
 
     <record id="sign_template_sale_order_salesperson_demo_item" model="sign.oca.template.item">
-        <field name="template_id" ref="sign_sale_order.sign_template_sale_order_demo"/>
+        <field name="template_id" ref="sign_report.sign_template_sale_order_demo"/>
         <field name="field_id" ref="sign_oca.sign_field_signature" />
-        <field name="role_id" ref="sign_sale_order.sign_role_sale_order_sales_person"/>
+        <field name="role_id" ref="sign_report.sign_role_sale_order_sales_person"/>
         <field name="page">1</field>
-        <field name="position_x">10</field>
-        <field name="position_y">10</field>
+        <field name="position_x">65</field>
+        <field name="position_y">85</field>
         <field name="width">30</field>
         <field name="height">4</field>
         <field name="required" eval="True" />
