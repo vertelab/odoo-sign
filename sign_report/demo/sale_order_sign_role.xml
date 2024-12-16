@@ -3,13 +3,13 @@
 
     <record id="sign_role_sale_order_customer" model="sign.oca.role">
         <field name="name">Sale Order Customer</field>
-        <field name="partner_type">expression</field>
+        <field name="partner_selection_policy">expression</field>
         <field name="expression_partner">${object.partner_id.id}</field>
     </record>
 
     <record id="sign_role_sale_order_sales_person" model="sign.oca.role">
         <field name="name">Sale Order SalesPerson</field>
-        <field name="partner_type">expression</field>
+        <field name="partner_selection_policy">expression</field>
         <field name="expression_partner">${object.user_id.partner_id.id}</field>
     </record>
 
