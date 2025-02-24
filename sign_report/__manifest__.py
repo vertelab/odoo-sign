@@ -5,10 +5,10 @@
     "summary": """
         Sign docs based on qweb report
     """,
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "website": "https://github.com/vertel/odoo-sign",
-    "depends": ["sign_oca",],
+    "depends": ["sign_oca", 'sale'],
     "data": [
         "views/sign_oca_template_view.xml",
     ],
