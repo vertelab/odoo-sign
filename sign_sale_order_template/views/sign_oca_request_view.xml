@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="sign_oca_request_form_view" model="ir.ui.view">
+            <field name="name">sign.oca.request.form</field>
+            <field name="model">sign.oca.request</field>
+            <field name="inherit_id" ref="sign_oca.sign_oca_request_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='signer_ids']/list/field[last()]" position="before">
+                    <field name="signature" readonly="1" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
