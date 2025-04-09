@@ -63,17 +63,6 @@ class SaleOrder(models.Model):
             self.sign_request_id = sign_request_id.id
         return sign_request_id.sign()
 
-    # @api.onchange('signature')
-    # def change_customer_sign_request(self):
-    #     sale_order_partner_signer_id = self.sign_request_id.signer_ids.filtered(
-    #         lambda signer: signer.partner_id.id == self.partner_id.id
-    #     )
-    #     if sale_order_partner_signer_id:
-    #         sale_order_partner_signer_id.write({
-    #             'signature': self.signature,
-    #             'signed_on': self.signed_on,
-    #         })
-
     def action_update_sign_request(self):
         sale_order_partner_signer_id = self.sign_request_id.signer_ids.filtered(
             lambda signer: signer.partner_id.id == self.partner_id.id
@@ -89,9 +78,6 @@ class SaleOrder(models.Model):
             else:
                 raise UserError("This document is not signed yet")
         sale_order_partner_signer_id.action_sign(info_item)
-
-        # confirm order
-        # self.action_confirm()
 
 
 
