@@ -11,6 +11,7 @@
     "depends": ["sign_oca", 'sale'],
     "data": [
         "views/sign_oca_template_view.xml",
+        "views/sign_oca_request_view.xml",
     ],
     "demo": [
         "demo/sale_order_sign_role.xml",

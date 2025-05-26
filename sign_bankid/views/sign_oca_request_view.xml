@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+<!--        <record id="bankid_sign_oca_request_form_view" model="ir.ui.view">-->
+<!--            <field name="model">sign.oca.request</field>-->
+<!--            <field name="model">sign.oca.request</field>-->
+<!--            <field name="inherit_id" ref="sign_report.base_sign_request_form_view" />-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//page[last()]" position="after">-->
+<!--                    <page string="Sign with BankID" invisible="signing_option != 'bankid'">-->
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="bankid_order_ref"/>-->
+<!--                                <field name="bankid_auto_start_token"/>-->
+<!--                                <field name="bankid_qr_start_token"/>-->
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <field name="bankid_qr_start_secret"/>-->
+<!--                                <field name="bankid_qr_code_content"/>-->
+<!--                                <field name="bankid_status"/>-->
+<!--                                <field name="bankid_start_time"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                    </page>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="bankid_request_signer_form_view" model="ir.ui.view">
+            <field name="model">sign.oca.request.signer</field>
+            <field name="model">sign.oca.request.signer</field>
+            <field name="inherit_id" ref="sign_report.base_sign_oca_request_signer_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Sign with BankID" invisible="signing_option != 'bankid'">
+                        <group>
+                            <group>
+                                <field name="bankid_order_ref"/>
+                                <field name="bankid_auto_start_token"/>
+                                <field name="bankid_qr_start_token"/>
+                            </group>
+                            <group>
+                                <field name="bankid_qr_start_secret"/>
+                                <field name="bankid_qr_code_content"/>
+                                <field name="bankid_status"/>
+                                <field name="bankid_start_time"/>
+                            </group>
+                        </group>
+
+                        <group string="Response">
+                            <group>
+                                <field name="bankid_signed_name"/>
+                                <field name="bankid_signed_personal_number"/>
+                                <field name="bankid_signed_given_name"/>
+                                <field name="bankid_ocsp_response"/>
+                                <field name="bankid_final_pdf"/>
+                            </group>
+                            <group>
+                                <field name="bankid_signed_surname"/>
+                                <field name="bankid_device_ip"/>
+                                <field name="bankid_issue_date"/>
+                                <field name="bankid_signature"/>
+                                <field name="signed_date"/>
+                            </group>
+                        </group>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

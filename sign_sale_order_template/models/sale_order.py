@@ -5,12 +5,22 @@ from odoo.exceptions import UserError, ValidationError
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    def _sign_request_domain(self):
-        record_ref = f"{self._name},{self.id}"
-        return [('record_ref', '=', record_ref)]
+    # def _sign_request_domain(self):
+    #     record_ref = f"{self._name},{self.id}"
+    #     return [('record_ref', '=', record_ref)]
+
+    def _compute_sale_order_sign_request(self):
+        for rec in self:
+            record_ref = f"{rec._name},{rec.id}"
+            sign_request_id = self.env['sign.oca.request'].search([('record_ref', '=', record_ref)])
+            if sign_request_id:
+                rec.sign_request_id = sign_request_id[-1]
+            else:
+                rec.sign_request_id = False
+
 
     sign_request_id = fields.Many2one(
-        'sign.oca.request', string="Sign Request", domain=_sign_request_domain, readonly=True, copy=False)
+        'sign.oca.request', string="Sign Request", compute=_compute_sale_order_sign_request, readonly=True, copy=False)
     signed_doc = fields.Binary(string="Signed", related="sign_request_id.data", copy=False)
     signer_ids = fields.One2many(related="sign_request_id.signer_ids", copy=False)
 
