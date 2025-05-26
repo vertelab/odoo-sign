@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record id="base_sign_request_form_view" model="ir.ui.view">
+            <field name="model">sign.oca.request</field>
+            <field name="model">sign.oca.request</field>
+            <field name="inherit_id" ref="sign_oca.sign_oca_request_form_view" />
+            <field name="arch" type="xml">
+                <field name="signer_ids" position="replace">
+                    <notebook>
+                        <page name="Signers">
+                            <field name="signer_ids" nolabel="1" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="role_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="signed_on" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </field>
+            </field>
+        </record>
+
+        <record id="base_sign_oca_request_signer_form_view" model="ir.ui.view">
+            <field name="model">sign.oca.request.signer</field>
+            <field name="model">sign.oca.request.signer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="signed_on"/>
+                                <field name="latitude"/>
+                                <field name="longitude"/>
+                            </group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="role_id"/>
+                                <field name="sequence_id"/>
+                            </group>
+                        </group>
+                        <notebook/>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

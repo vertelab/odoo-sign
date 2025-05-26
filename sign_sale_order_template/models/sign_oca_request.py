@@ -19,9 +19,29 @@ from odoo.tools import float_repr
 
 _logger = logging.getLogger(__name__)
 
+class SignOcaRequest(models.Model):
+    _inherit = "sign.oca.request"
+
+    signing_option = fields.Selection(related='template_id.signing_option')
+
+    def _initiate_sign(self):
+        """Generic signing initiator"""
+        if not self.signing_option:
+            raise UserError("Please select a signature method")
+
+        method_name = f'_initiate_{self.signing_option}_sign'
+
+        if hasattr(self, method_name):
+            method = getattr(self, method_name)
+            return method()
+        else:
+            return None
+
 
 class SignOcaRequestSigner(models.Model):
     _inherit = "sign.oca.request.signer"
+
+    signing_option = fields.Selection(related='request_id.signing_option')
 
     signature = fields.Binary(string="Signature")
 

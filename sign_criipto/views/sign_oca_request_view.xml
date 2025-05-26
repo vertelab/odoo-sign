@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="criipto_sign_oca_request_form_view" model="ir.ui.view">
+            <field name="model">sign.oca.request</field>
+            <field name="model">sign.oca.request</field>
+            <field name="inherit_id" ref="sign_oca.sign_oca_request_form_view" />
+            <field name="arch" type="xml">
+                <button name="cancel" position="after">
+                    <button name="action_view_current_document" string="Signature Status" type="object" class="btn btn-primary"/>
+                </button>
+
+                <field name="record_ref" position="after">
+                    <field name="criipto_signature_order_id"/>
+                </field>
+                <xpath expr="//field[@name='signer_ids']/list/field[last()]" position="after">
+                    <field name="criipto_signature_id" readonly="1" />
+                    <field name="criipto_signature_url" readonly="1" widget="url" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
