@@ -16,9 +16,9 @@ class ResCompany(models.Model):
     _inherit = 'res.company'
 
     def _bankid_credentials(self):
-        appapi_test = "/appapi2.test.bankid.com.pem"
-        cert_file = "/FPTestcert5_20240610_cert.pem"
-        key_file = "/FPTestcert5_20240610_key.pem"
+        appapi_test = "/home/ayomir/Downloads/pybankid/bankid/certs/appapi2.test.bankid.com.pem"
+        cert_file = "/home/ayomir/Downloads/pybankid/bankid/certs/FPTestcert5_20240610_cert.pem"
+        key_file = "/home/ayomir/Downloads/pybankid/bankid/certs/FPTestcert5_20240610_key.pem"
         return cert_file, key_file, appapi_test
 
     def bank_id_client(self):
