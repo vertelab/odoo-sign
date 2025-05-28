@@ -49,6 +49,15 @@ export class BankIDSignModal extends Component {
             this.state.message = 'Missing record information. Please close and try again.';
         }
 
+        // Auto-start BankID when modal is mounted
+//        onMounted(() => {
+//            console.log('BankID Modal mounted - auto-starting BankID signing');
+//            // Only auto-start if we have valid context
+//            if (this.recordId && this.recordModel && this.state.status !== 'error') {
+//                this.startBankIDSigning();
+//            }
+//        });
+
         // Cleanup intervals when component is unmounted
         onWillUnmount(() => {
             console.log('BankID Modal unmounting - cleaning up intervals');
