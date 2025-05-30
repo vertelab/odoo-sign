@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="tier_review_view_form" model="ir.ui.view">
+        <field name="name">tier.review.form</field>
+        <field name="model">tier.review</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="model" readonly="1"/>
+                            <field name="res_id" readonly="1"/>
+                            <field name="status" readonly="1"/>
+                            <field name="reviewer_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="display_status"/>
+                            <field name="sequence"/>
+                            <field name="todo_by"/>
+                            <field name="requested_by"/>
+                            <field name="reviewed_date"/>
+                            <field name="can_review"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="reviewers" string="Reviewers">
+                            <field name="reviewer_ids"/>
+                        </page>
+
+                        <page name="bankid_sign" string="BankID">
+                            <group>
+                                <group>
+                                    <field name="bankid_order_ref"/>
+                                    <field name="bankid_status"/>
+                                    <field name="signed_user_id"/>
+                                    <field name="signed_partner_id"/>
+                                    <field name="bankid_signature"/>
+                                    <field name="bankid_ocsp_response"/>
+                                    <field name="signed_date"/>
+                                </group>
+                                <group>
+                                    <field name="bankid_signed_name"/>
+                                    <field name="bankid_signed_personal_number"/>
+                                    <field name="bankid_signed_given_name"/>
+                                    <field name="bankid_signed_surname"/>
+                                    <field name="bankid_device_ip"/>
+                                    <field name="bankid_issue_date"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

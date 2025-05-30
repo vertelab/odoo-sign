@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_move_form_extended" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='other_info']" position="after">
+                <page string="Sign with BankID">
+                    <group>
+                        <group>
+                            <field name="bankid_order_ref"/>
+                            <field name="bankid_auto_start_token"/>
+                            <field name="bankid_qr_start_token"/>
+                            <field name="signed_user_id"/>
+                            <field name="res_model"/>
+                            <field name="bankid_signed_name"/>
+                        </group>
+                        <group>
+                            <field name="bankid_qr_start_secret"/>
+                            <field name="bankid_status"/>
+                            <field name="bankid_start_time"/>
+                            <field name="signed_partner_id"/>
+                            <field name="res_id"/>
+                            <field name="bankid_signed_personal_number"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

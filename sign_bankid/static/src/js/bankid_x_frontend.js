@@ -23,7 +23,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
 
     start: function() {
         const result = this._super(...arguments);
-        console.log("BankID Sign Widget Started");
 
         // Configure modal to not close on outside click or escape
         this.$el.modal({
@@ -40,7 +39,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
      * Reset UI state when modal is shown
      */
     _onModalShow: function() {
-        console.log("BankID modal opening - resetting state");
         this._resetUIState();
     },
 
@@ -83,16 +81,12 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
 
         // Reset auto-start link
         this.$('#bankid-autostart-link').attr('href', '#');
-
-        console.log("UI state reset complete");
     },
 
     /**
      * Handle when modal is closed
      */
     _onModalClosed: function() {
-        console.log("BankID modal closed");
-
         // Clear intervals and reset state
         this._clearIntervals();
         this.orderRef = null;
@@ -101,25 +95,13 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
 
     _onBankIdInit: async function(ev) {
         ev.preventDefault();
-        console.log("BankID Init triggered");
 
         // Use this.$() to ensure we're searching within the widget's element
         const $form = this.$('#bankid_sign');
         const $ssnInput = this.$('input[name="ssn"]');
 
-        // Debug logging
-        console.log("Form found:", $form.length);
-        console.log("Form data:", {
-            'res-id': $form.data('res-id'),
-            'res-model': $form.data('res-model'),
-            'token': $form.data('token')
-        });
-        console.log("SSN input found:", $ssnInput.length);
-        console.log("SSN input value:", $ssnInput.val());
-
         // Check if input exists before trying to get value
         if ($ssnInput.length === 0) {
-            console.error("SSN input not found!");
             alert("Error: SSN input field not found. Please refresh the page and try again.");
             return;
         }
@@ -138,12 +120,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
         this.res_model = $form.data('res-model');
         this.access_token = $form.data('token');
 
-        console.log("Parameters:", {
-            res_id: this.res_id,
-            res_model: this.res_model,
-            ssn: this.ssn,
-            access_token: this.access_token ? 'present' : 'missing'
-        });
 
         // Validate SSN format
         if (!this._isValidSSN(this.ssn)) {
@@ -163,8 +139,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
                 ssn: this.ssn,
                 access_token: this.access_token
             });
-
-            console.log("BankID initialization result:", result);
 
             if (result.error) {
                 // Show error
@@ -187,8 +161,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
                 'href',
                 'bankid:///?autostarttoken=' + result.auto_start_token
             );
-
-            console.log('Initial QR code content:', result.qr_content);
 
             // Create initial QR code
             if (window.QRCode && result.qr_content) {
@@ -215,7 +187,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
 
     _onBankIdCancel: async function(ev) {
         ev.preventDefault();
-        console.log("BankID Cancel triggered");
 
         // Check if this is the header close button or footer cancel button
         const isHeaderClose = $(ev.target).hasClass('btn-close') || $(ev.target).parent().hasClass('btn-close');
@@ -270,7 +241,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
             this._updateQRCode();
         }, 1000);
 
-        console.log("QR update interval started");
     },
 
     _startStatusPolling: function() {
@@ -284,7 +254,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
             this._checkStatus();
         }, 2000);
 
-        console.log("Status polling started");
     },
 
     _updateQRCode: async function() {
@@ -298,15 +267,12 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
                 access_token: this.access_token
             });
 
-            console.log("QR update result:", result);
-
             if (result.error) {
                 console.error("Error getting QR code:", result.error);
                 return;
             }
 
             if (result.qr_content && this.currentQrContent !== result.qr_content) {
-                console.log("QR code content changed, updating...");
                 this._generateQRCode(result.qr_content);
             }
         } catch (error) {
@@ -319,8 +285,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
             console.warn("No QR content provided");
             return;
         }
-
-        console.log("Generating QR code with content:", qrContent.substring(0, 50) + "...");
 
         const qrContainer = this.$('#qrcode-container')[0];
         if (qrContainer && window.QRCode) {
@@ -358,8 +322,6 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
                 res_model: this.res_model,
                 access_token: this.access_token
             });
-
-            console.log("Status check result:", result);
 
             const $statusEl = this.$('#bankid_status');
 
@@ -438,12 +400,10 @@ publicWidget.registry.BankIDSignWidget = publicWidget.Widget.extend({
         if (this.qrInterval) {
             clearInterval(this.qrInterval);
             this.qrInterval = null;
-            console.log("QR interval cleared");
         }
         if (this.statusInterval) {
             clearInterval(this.statusInterval);
             this.statusInterval = null;
-            console.log("Status interval cleared");
         }
     },
 

@@ -16,7 +16,9 @@ class BankIDResource(models.AbstractModel):
     res_id = fields.Many2oneReference(string='Related Document ID', index=True, model_field='res_model')
 
     # User tracking - IMPORTANT for security and audit
-    signed_user_id = fields.Many2one("res.users", string="Signing User", readonly=True)
+    signed_user_id = fields.Many2one(
+        "res.users", string="Signing User", readonly=True, default=lambda self: self.env.user
+    )
     signed_partner_id = fields.Many2one(
         "res.partner",
         string="Signing Partner",
@@ -217,7 +219,8 @@ class BankIDResource(models.AbstractModel):
             'bankid_signature': completion_data.get('signature'),
             'bankid_ocsp_response': completion_data.get('ocspResponse'),
             'signed_date': fields.Datetime.now(),
-            'bankid_status': 'complete'
+            'bankid_status': 'complete',
+            'signed_user_id': self.env.user.id
         }
 
         self.write(bankid_data)
@@ -232,3 +235,12 @@ class BankIDResource(models.AbstractModel):
     def _has_to_be_signed(self):
         """Override this method in your specific model to define when signing is required"""
         return self.bankid_status != 'complete'
+
+
+    def _has_user_signed_rec(self):
+        """Check if current user has signed this record with BankID"""
+        return (
+                self.bankid_status == 'complete' and
+                self.bankid_signature and
+                self.signed_user_id == self.env.user  # or however you track who signed
+        )
