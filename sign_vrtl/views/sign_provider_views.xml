@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sign_provider_form" model="ir.ui.view">
+        <field name="name">sign.provider.form</field>
+        <field name="model">sign.provider</field>
+        <field name="arch" type="xml">
+            <form string="Sign Provider">
+                <sheet>
+                    <field name="image_128" widget="image" class="oe_avatar"
+                           readonly="module_state != 'installed'"/>
+                    <widget name="web_ribbon" title="Disabled" bg_color="text-bg-danger" invisible="module_state != 'installed' or state != 'disabled'"/>
+                    <widget name="web_ribbon" title="Test Mode" bg_color="text-bg-warning" invisible="module_state != 'installed' or state != 'test'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Name"/></h1>
+                    </div>
+                    <group>
+                        <group name="payment_state" invisible="module_state not in ('installed', False)">
+                            <field name="code" groups="base.group_no_one" readonly="id"/>
+                            <field name="state" widget="radio"/>
+                            <field name="company_id" groups="base.group_multi_company" options='{"no_open":True}'/>
+                        </group>
+                    </group>
+                    <notebook invisible="module_id and module_state != 'installed'">
+                        <page string="Setup" name="setup" invisible="code == 'internal'">
+                            <group name="provider_setup"/>
+                        </page>
+<!--                        <page string="Configuration" name="configuration">-->
+<!--                            <group name="provider_config">-->
+<!--                                <group string="Payment Form" name="payment_form">-->
+<!--                                    <field name="payment_method_ids"-->
+<!--                                           string="Payment Methods"-->
+<!--                                           domain="[('is_primary', '=', True)]"-->
+<!--                                           readonly="True"-->
+<!--                                           invisible="state == 'disabled'"-->
+<!--                                           widget="many2many_tags"-->
+<!--                                    />-->
+<!--                                    <div colspan="2">-->
+<!--                                        <a type="object"-->
+<!--                                           name="action_view_payment_methods"-->
+<!--                                           class="btn btn-link"-->
+<!--                                           role="button"-->
+<!--                                           invisible="state == 'disabled'"-->
+<!--                                        >-->
+<!--                                            <i class="oi oi-fw o_button_icon oi-arrow-right"/>-->
+<!--                                            Enable Payment Methods-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <field name="allow_tokenization" invisible="not support_tokenization"/>-->
+<!--                                    <field name="capture_manually" invisible="not support_manual_capture"/>-->
+<!--                                    <field name="allow_express_checkout" invisible="not support_express_checkout"/>-->
+<!--                                </group>-->
+<!--                                <group string="Payment Followup" name="payment_followup" invisible="1"/>-->
+<!--                            </group>-->
+<!--                        </page>-->
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sign_provider_list" model="ir.ui.view">
+        <field name="name">sign.provider.list</field>
+        <field name="model">sign.provider</field>
+        <field name="arch" type="xml">
+            <list string="Payment Providers" create="false">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code" groups="base.group_no_one"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sign_provider_kanban" model="ir.ui.view">
+        <field name="name">sign.provider.kanban</field>
+        <field name="model">sign.provider</field>
+        <field name="arch" type="xml">
+            <kanban create="false" quick_create="false">
+                <field name="module_id"/>
+                <field name="module_state"/>
+                <templates>
+                    <t t-name="card" class="flex-row">
+                        <t t-set="installed" t-value="!record.module_id.value || (record.module_id.value &amp;&amp; record.module_state.raw_value === 'installed')"/>
+                        <t t-set="is_disabled" t-value="record.state.raw_value=='disabled'"/>
+                        <aside>
+                            <field type="open"
+                                 name="image_128" widget="image"
+                                 class="mb-0 o_image_64_max"
+                                 alt="provider"/>
+                        </aside>
+                        <main class="ms-2">
+                            <field name="name" class="mb-0 fw-bold fs-4"/>
+                            <div class="d-flex">
+                                <t t-if="installed">
+                                    <field name="state"
+                                        widget="label_selection"
+                                        options="{'classes': {'enabled': 'success', 'test': 'warning', 'disabled' : 'light'}}"/>
+                                </t>
+                            </div>
+                            <footer>
+                                <button t-if="!installed and !selection_mode" type="object" class="btn btn-sm btn-primary ms-auto" name="button_immediate_install">Install</button>
+                                <button t-if="installed and is_disabled and !selection_mode" type="edit" class="btn btn-sm btn-secondary ms-auto">Activate</button>
+                            </footer>
+                        </main>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="sign_provider_search" model="ir.ui.view">
+        <field name="name">sign.provider.search</field>
+        <field name="model">sign.provider</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="provider" filter_domain="[('name', 'ilike', self)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Provider" name="code" context="{'group_by': 'code'}"/>
+                    <filter string="State" name="state" context="{'group_by': 'state'}"/>
+                    <filter string="Company" name="company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sign_provider" model="ir.actions.act_window">
+        <field name="name">Sign Providers</field>
+        <field name="res_model">sign.provider</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new payment provider
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_sign_providers" name="Sign Providers"
+            parent="base.menu_users" sequence="30"
+            action="action_sign_provider" groups="base.group_no_one"/>
+
+</odoo>

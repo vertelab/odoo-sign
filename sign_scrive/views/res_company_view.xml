@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="view_company_form" model="ir.ui.view">
+            <field name="name">res.company.form.inherit.sign_scrive</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Scrive" name="scrive_sign">
+                        <group>
+                            <group string="Scrive Access">
+                                <field name="scrive_url"/>
+                                <field name="scrive_username"/>
+                                <field name="scrive_password" password="True"/>
+                            </group>
+                            <group string="API Access">
+                                <field name="scrive_api_token"/>
+                                <field name="scrive_api_secret"/>
+                                <field name="scrive_access_token"/>
+                                <field name="scrive_access_secret"/>
+                            </group>
+                            <button name="action_scrive_auth" class="btn btn-primary" type="object" string="Authorize Scrive"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

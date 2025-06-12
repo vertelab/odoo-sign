@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="view_sale_order_template_form" model="ir.ui.view">
+            <field name="name">sale.order.template.inherit.scrive</field>
+            <field name="model">sale.order.template</field>
+            <field name="inherit_id" ref="sale_management.sale_order_template_view_form"/>
+            <field name="arch" type="xml">
+                <field name="require_signature" position="after">
+                    <field name="sign_provider_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_order_form_scrive" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.scrive</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <button name="action_confirm" position="after">
+                    <button name="action_start_signature" string="Start Sign" type="object" />
+                    <button name="action_callback" string="Start Sign Callback" type="object" />
+                    <button name="action_getqr_code" string="Get QR Code" type="object" />
+                    <button name="action_scrive_signing_data" string="Scrive Signing Data" type="object" />
+                    <button name="action_get_scrive_document" string="Get Scrive Document" type="object" />
+                </button>
+
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Sign with Scrive">
+                        <group>
+                            <group>
+                                <field name="scrive_document_id"/>
+                                <field name="scrive_signatory_id"/>
+                                <field name="scrive_is_document_signed"/>
+                                <field name="scrive_document_name" invisible="True"/>
+                                <field name="scrive_document_data" filename="scrive_document_name" readonly="True"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

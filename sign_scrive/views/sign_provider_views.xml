@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="view_sign_provider_form_scrive" model="ir.ui.view">
+            <field name="name">sign.provider.form.inherit.scrive</field>
+            <field name="model">sign.provider</field>
+            <field name="inherit_id" ref="sign_vrtl.sign_provider_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='provider_setup']" position="inside">
+                    <group string="Scrive Access">
+                        <field name="scrive_api_url"/>
+                        <field name="scrive_username"/>
+                        <field name="scrive_password" password="True"/>
+
+                        <button name="action_scrive_auth" class="btn btn-primary" type="object" string="Authorize Scrive"/>
+                    </group>
+                    <group string="API Access">
+                        <field name="scrive_api_token"/>
+                        <field name="scrive_api_secret"/>
+                        <field name="scrive_access_token"/>
+                        <field name="scrive_access_secret"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
