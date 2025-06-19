@@ -6,4 +6,10 @@
         <field name="image_128" type="base64" file="sign_scrive/static/description/icon.svg"/>
         <field name="module_id" ref="base.module_sign_scrive"/>
     </record>
+
+    <record id="sign_provider_bankid" model="sign.provider">
+        <field name="name">BankID</field>
+        <field name="image_128" type="base64" file="sign_bankid/static/description/bankid.png"/>
+        <field name="module_id" ref="base.module_sign_bankid"/>
+    </record>
 </odoo>

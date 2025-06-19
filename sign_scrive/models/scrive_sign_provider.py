@@ -8,7 +8,7 @@ from werkzeug.urls import url_encode, url_join, url_parse
 from odoo.exceptions import ValidationError
 
 
-class SignProvider(models.Model):
+class ScriveSignProvider(models.Model):
     _inherit = "sign.provider"
 
     code = fields.Selection(
