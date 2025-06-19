@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="vrtl_scrive_sign_request_form_view">
+        <field name="name">vrtl.scrive.sign.request.form</field>
+        <field name="model">vrtl.sign.request</field>
+        <field name="inherit_id" ref="sign_vrtl.vrtl_sign_request_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='signer_ids']/list/field[@name='partner_id']" position="after">
+                <field name="scrive_status"/>
+                <field name="signature_hash"/>
+                <field name="email_delivery_status"/>
+            </xpath>
+
+            <button name="cancel" position="after">
+                <button string="Download Document" type="object" name="download_scrive_document"/>
+            </button>
+
+            <xpath expr="//page[@name='signers']" position="after">
+                <page string="Scrive" name="scrive" invisible="sign_provider_code != 'scrive'">
+                    <group>
+                        <group>
+                            <field name="scrive_document_id"/>
+                            <field name="scrive_signatory_id"/>
+                            <field name="scrive_is_document_signed"/>
+                        </group>
+                        <group>
+                            <field name="scrive_document_name"/>
+                            <field name="scrive_document_data"/>
+                            <field name="scrive_signed_date"/>
+                        </group>
+
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

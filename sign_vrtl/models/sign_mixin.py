@@ -11,12 +11,6 @@ class SignProviderMixin(models.AbstractModel):
     _name = "sign.provider.mixin"
     _description = 'Sign Providers Mixin'
 
-    # name = fields.Char(string="Name", required=True, translate=True)
-    # state = fields.Selection(
-    #     string="State",
-    #     selection=[('disabled', "Disabled"), ('enabled', "Enabled"), ('test', "Test Mode")],
-    #     default='disabled', required=False, copy=False)
-
     name = fields.Char(string="Name", required=True, translate=True)
 
     state = fields.Selection(

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="vrtl_sign_definition_form_view">
+        <field name="name">vrtl.sign.definition.form</field>
+        <field name="model">vrtl.sign.definition</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- TODO -->
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+
+                    </div>
+                    <group>
+                        <field name="name" />
+                        <field name="data" filename="filename" />
+                        <field name="filename" invisible="1" />
+                        <field name="model_id" />
+                        <field name="report_template"/>
+                        <field name="sign_provider_id"/>
+                    </group>
+                    <notebook>
+                        <page name="items" string="Fields">
+                            <field name="item_ids" >
+                                <list editable="bottom">
+                                    <field name="field_id" />
+                                    <field name="model_id" />
+                                    <field name="role" />
+                                    <field name="required" />
+                                    <field name="placeholder" />
+                                </list>
+
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="field_id" />
+                                                <field name="role" />
+                                            </group>
+                                            <group>
+                                                <field name="required" />
+                                                <field name="placeholder" />
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vrtl_sign_definition_search_view">
+        <field name="name">vrtl.sign.definition.search</field>
+        <field name="model">vrtl.sign.definition</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vrtl_sign_definition_kanban_view">
+        <field name="name">vrtl.sign.definition.kanban</field>
+        <field name="model">vrtl.sign.definition</field>
+        <field name="arch" type="xml">
+            <kanban quick_create="false" default_order="create_date desc">
+                <field name="name" />
+                <field name="create_date" />
+                <field name="create_uid" />
+                <templates>
+                    <t t-name="card">
+                        <div>
+                            <field class="fw-bolder" name="display_name" />
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="vrtl_sign_definition_act_window">
+        <field name="name">Sign Definition</field>
+        <!-- TODO -->
+        <field name="res_model">vrtl.sign.definition</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="vrtl_sign_definition_menu">
+        <field name="name">Sign Definition</field>
+        <field name="parent_id" ref="menu_vrtl_sign_providers" />
+        <!-- TODO -->
+        <field name="action" ref="vrtl_sign_definition_act_window" />
+        <field name="sequence" eval="16" />
+        <!-- TODO -->
+    </record>
+
+<!--    <menuitem id="menu_sign_definition" name="Sign Definition"-->
+<!--            parent="menu_vrtl_sign_providers" sequence="30"-->
+<!--            action="vrtl_sign_definition_menu" groups="base.group_no_one"/>-->
+</odoo>

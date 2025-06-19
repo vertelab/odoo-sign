@@ -12,42 +12,61 @@ _logger = logging.getLogger(__name__)
 
 
 class ScriveController(http.Controller):
-
     _callback_url = '/sign/scrive/callback'
 
-    @http.route(['/scrive/callback'], type='http', auth="public", website=True, csrf=False)
+    @http.route([_callback_url], type='http', auth="public", website=True, csrf=False)
     def scrive_callback(self, **kw):
-        """Initialize a BankID signing process"""
+        """Handle Scrive callback webhook"""
         try:
-            print("callback", request.httprequest.args)
-            print("kw", kw)
-            # _logger.info(f"BankID Initialize called: res_id={res_id}, res_model={res_model}")
-            #
-            try:
-                rec_sudo = request.env['sale.order'].sudo().search([
-                    ('scrive_document_id', '=', kw.get('document_id'))
-                ])
-            except (AccessError, MissingError):
-                return {'error': 'Access denied or document not found'}
+            _logger.info(f"Scrive callback received: {kw}")
 
-            # # Verify the model inherits from res.bankid
-            # if not hasattr(rec_sudo, 'bankid_order_ref'):
-            #     return {'error': 'Model does not support BankID signing'}
-            #
-            # # Use the existing method from res.bankid abstract model
-            # result = rec_sudo.initiate_bankid_client()
-            #
-            # if result.get('success'):
-            #     return {
-            #         'order_ref': result.get('orderRef'),
-            #         'auto_start_token': result.get('autoStartUrl', '').replace('bankid:///?autostarttoken=',
-            #                                                                    '').replace('&redirect=null', ''),
-            #         'qr_content': result.get('qrCode'),
-            #     }
-            # else:
-            #     return {'error': result.get('error', 'Failed to initialize BankID')}
+            document_id = kw.get('document_id')
+            if not document_id:
+                _logger.error("No document_id in callback")
+                return self._callback_response({'error': 'Missing document_id'}, status=400)
+
+            # Find the sign request by document_id
+            sign_request = self._find_sign_request_by_document_id(document_id)
+            if not sign_request:
+                _logger.error(f"No sign request found for document_id: {document_id}")
+                return self._callback_response({'error': 'Sign request not found'}, status=404)
+
+            # Process the callback using the provider
+            try:
+                result = sign_request.sign_provider_id.process_scrive_callback(sign_request, kw)
+                _logger.info(f"Callback processed successfully for document {document_id}")
+                return self._callback_response({'status': 'success', 'result': result})
+
+            except Exception as e:
+                _logger.error(f"Error processing callback for document {document_id}: {e}", exc_info=True)
+                return self._callback_response({'error': f'Processing failed: {str(e)}'}, status=500)
 
         except Exception as e:
-            _logger.error(f"Error in bankid_initialize: {e}", exc_info=True)
-            return {'error': str(e)}
+            _logger.error(f"Error in scrive_callback: {e}", exc_info=True)
+            return self._callback_response({'error': str(e)}, status=500)
 
+    def _find_sign_request_by_document_id(self, document_id):
+        """Find sign request by Scrive document ID"""
+        try:
+            # Search using the scrive_document_id field you added to the model
+            sign_request = request.env['vrtl.sign.request'].sudo().search([
+                ('scrive_document_id', '=', document_id)
+            ], limit=1)
+
+            if sign_request:
+                return sign_request
+
+            return None
+
+        except (AccessError, MissingError) as e:
+            _logger.error(f"Access error finding sign request: {e}")
+            return None
+
+    def _callback_response(self, data, status=200):
+        """Return a properly formatted response"""
+        response = request.make_response(
+            data if isinstance(data, str) else str(data),
+            headers=[('Content-Type', 'application/json')]
+        )
+        response.status_code = status
+        return response

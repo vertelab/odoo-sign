@@ -1,3 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 sign_vrtl.access_sign_provider,access_sign_provider,sign_vrtl.model_sign_provider,base.group_user,1,1,1,1
+sign_vrtl.access_vrtl_sign_definition,access_vrtl_sign_definition,sign_vrtl.model_vrtl_sign_definition,base.group_user,1,1,1,1
+sign_vrtl.access_vrtl_sign_definition_item,access_vrtl_sign_definition_item,sign_vrtl.model_vrtl_sign_definition_item,base.group_user,1,1,1,1
+sign_vrtl.access_vrtl_sign_request,access_vrtl_sign_request,sign_vrtl.model_vrtl_sign_request,base.group_user,1,1,1,1
+sign_vrtl.access_vrtl_sign_request_signer,access_vrtl_sign_request_signer,sign_vrtl.model_vrtl_sign_request_signer,base.group_user,1,1,1,1
+sign_vrtl.access_vrtl_sign_request_log,access_vrtl_sign_request_log,sign_vrtl.model_vrtl_sign_request_log,base.group_user,1,1,1,1
 

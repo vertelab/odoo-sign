@@ -25,34 +25,6 @@
                         <page string="Setup" name="setup" invisible="code == 'internal'">
                             <group name="provider_setup"/>
                         </page>
-<!--                        <page string="Configuration" name="configuration">-->
-<!--                            <group name="provider_config">-->
-<!--                                <group string="Payment Form" name="payment_form">-->
-<!--                                    <field name="payment_method_ids"-->
-<!--                                           string="Payment Methods"-->
-<!--                                           domain="[('is_primary', '=', True)]"-->
-<!--                                           readonly="True"-->
-<!--                                           invisible="state == 'disabled'"-->
-<!--                                           widget="many2many_tags"-->
-<!--                                    />-->
-<!--                                    <div colspan="2">-->
-<!--                                        <a type="object"-->
-<!--                                           name="action_view_payment_methods"-->
-<!--                                           class="btn btn-link"-->
-<!--                                           role="button"-->
-<!--                                           invisible="state == 'disabled'"-->
-<!--                                        >-->
-<!--                                            <i class="oi oi-fw o_button_icon oi-arrow-right"/>-->
-<!--                                            Enable Payment Methods-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <field name="allow_tokenization" invisible="not support_tokenization"/>-->
-<!--                                    <field name="capture_manually" invisible="not support_manual_capture"/>-->
-<!--                                    <field name="allow_express_checkout" invisible="not support_express_checkout"/>-->
-<!--                                </group>-->
-<!--                                <group string="Payment Followup" name="payment_followup" invisible="1"/>-->
-<!--                            </group>-->
-<!--                        </page>-->
                     </notebook>
                 </sheet>
             </form>
@@ -137,7 +109,7 @@
     </record>
 
     <menuitem id="menu_sign_providers" name="Sign Providers"
-            parent="base.menu_users" sequence="30"
+            parent="menu_vrtl_sign_providers" sequence="30"
             action="action_sign_provider" groups="base.group_no_one"/>
 
 </odoo>

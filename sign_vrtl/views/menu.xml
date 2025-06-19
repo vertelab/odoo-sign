@@ -1,0 +1,3 @@
+<odoo>
+    <menuitem id="menu_vrtl_sign_providers" name="Sign Providers" parent="base.menu_users" sequence="30" groups="base.group_no_one"/>
+</odoo>
