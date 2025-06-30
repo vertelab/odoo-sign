@@ -103,11 +103,20 @@ export class BankIDSignModal extends Component {
         // If there's a callback method, call it
         if (this.callbackMethod) {
             try {
+                console.log(`Calling callback method: ${this.callbackMethod} on ${this.recordModel}[${this.recordId}]`);
+
                 const result = await this.orm.call(
                     this.recordModel,
                     this.callbackMethod,
                     [this.recordId]
                 );
+
+                console.log('Callback result:', result);
+
+                // Check if callback returned an error
+                if (result && typeof result === 'object' && result.success === false) {
+                    throw new Error(result.error || 'Callback returned failure');
+                }
 
                 // Show success notification
                 this.notification.add('Document signed and validated successfully!', {
@@ -124,20 +133,33 @@ export class BankIDSignModal extends Component {
 
             } catch (error) {
                 console.error('Error calling callback method:', error);
+                console.error('Full error details:', {
+                    message: error.message,
+                    data: error.data,
+                    stack: error.stack
+                });
+
                 this.notification.add(
                     `Signing completed but validation failed: ${error.message}`,
-                    { type: 'danger' }
+                    { type: 'warning' }  // Changed to warning since signing did work
                 );
 
                 // Still close the modal
                 this.props.close();
 
-                // Still reload
+                // Still reload to show that signing worked
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000);
             }
         } else {
+            console.log('No callback method specified, just closing modal');
+
+            // Show success notification
+            this.notification.add('Document signed successfully!', {
+                type: 'success'
+            });
+
             // Close modal
             this.props.close();
 
@@ -169,6 +191,8 @@ export class BankIDSignModal extends Component {
                     return;
                 }
 
+                console.log('BankID status:', status);
+
                 if (status.status === 'complete') {
                     // Just call handleSigningComplete - it handles everything
                     await this.handleSigningComplete();
@@ -177,6 +201,9 @@ export class BankIDSignModal extends Component {
                     this.state.message = status.message || 'BankID signing failed';
                     this.stopPolling();
                     this.stopQRUpdates();
+                } else if (status.hintCode) {
+                    // Update message based on hint code for better UX
+                    this.updateMessageFromHintCode(status.hintCode);
                 }
             } catch (error) {
                 console.error('Polling error:', error);
@@ -188,6 +215,25 @@ export class BankIDSignModal extends Component {
                 }
             }
         }, 2000);
+    }
+
+    updateMessageFromHintCode(hintCode) {
+        const messages = {
+            'outstandingTransaction': 'Please complete the signing in your BankID app',
+            'noClient': 'BankID app not found. Please install the BankID app and try again',
+            'userCancel': 'Signing was cancelled by user',
+            'cancelled': 'Signing was cancelled',
+            'expiredTransaction': 'Signing session expired. Please try again',
+            'certificateErr': 'Certificate error. Please try again',
+            'userDeclinedCall': 'User declined the call',
+            'timeout': 'Signing timed out. Please try again',
+            'prematurely_completed': 'Signing completed prematurely',
+            'unknown_error': 'Unknown error occurred'
+        };
+
+        if (messages[hintCode]) {
+            this.state.message = messages[hintCode];
+        }
     }
 
     stopPolling() {

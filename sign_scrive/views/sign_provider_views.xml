@@ -6,14 +6,14 @@
             <field name="inherit_id" ref="sign_vrtl.sign_provider_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='provider_setup']" position="inside">
-                    <group string="Scrive Access" invisible="code != 'bankid'">
+                    <group string="Scrive Access" invisible="code != 'scrive'">
                         <field name="scrive_api_url"/>
                         <field name="scrive_username"/>
                         <field name="scrive_password" password="True"/>
 
                         <button name="action_scrive_auth" class="btn btn-primary" type="object" string="Authorize Scrive"/>
                     </group>
-                    <group string="API Access" invisible="code != 'bankid'">
+                    <group string="API Access" invisible="code != 'scrive'">
                         <field name="scrive_api_token"/>
                         <field name="scrive_api_secret"/>
                         <field name="scrive_access_token"/>

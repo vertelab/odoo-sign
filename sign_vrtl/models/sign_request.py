@@ -158,6 +158,8 @@ class VrtlSignRequest(models.Model):
     def sign_data(self, provider_sign_data):
         print(provider_sign_data)
 
+    def verify_signature(self):
+        pass
 
 
     def send(self):
@@ -282,6 +284,7 @@ class VrtlSignRequestSigner(models.Model):
 
     data = fields.Binary(related="request_id.data")
     request_id = fields.Many2one("vrtl.sign.request", required=True, ondelete="cascade")
+    sign_provider_code = fields.Selection(related="request_id.sign_provider_id.code", string="Sign Provider Code")
     partner_name = fields.Char(related="partner_id.name")
     partner_id = fields.Many2one("res.partner", required=True, ondelete="restrict")
     role = fields.Char(required=True, ondelete="restrict")

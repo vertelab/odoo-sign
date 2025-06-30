@@ -1,22 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="vrtl_bankid_sign_request_form_view">
-        <field name="name">vrtl.bankid.sign.request.form</field>
-        <field name="model">vrtl.sign.request</field>
-        <field name="inherit_id" ref="sign_vrtl.vrtl_sign_request_form_view"/>
-        <field name="arch" type="xml">
-            <xpath expr="//page[@name='signers']" position="after">
-                <page string="BankID" name="bankid" invisible="sign_provider_code != 'bankid'">
-                    <group>
-                        <group>
-                            <field name="bankid_order_ref"/>
+<!--    <record model="ir.ui.view" id="vrtl_bankid_sign_request_form_view">-->
+<!--        <field name="name">vrtl.bankid.sign.request.form</field>-->
+<!--        <field name="model">vrtl.sign.request</field>-->
+<!--        <field name="inherit_id" ref="sign_vrtl.vrtl_sign_request_form_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//page[@name='signers']" position="after">-->
+<!--                <page string="BankID" name="bankid" invisible="sign_provider_code != 'bankid'">-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                            <field name="bankid_order_ref"/>-->
 
-                        </group>
-                        <group>
-                            <field name="bankid_order_ref"/>
-                        </group>
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="bankid_order_ref"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </page>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record model="ir.ui.view" id="vrtl_bankid_sign_request_signer_form_view">
+        <field name="name">vrtl.bankid.request.signer.form</field>
+        <field name="model">vrtl.sign.request.signer</field>
+        <field name="inherit_id" ref="sign_vrtl.vrtl_sign_request_signer_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='basic_sign_data']" position="after">
+                <group string="BankID" name="bankid" invisible="sign_provider_code != 'bankid'">
+                    <group>
+                        <field name="bankid_order_ref"/>
+                        <field name="bankid_auto_start_token"/>
+                        <field name="bankid_qr_start_token"/>
+                        <field name="bankid_qr_start_secret"/>
+                        <field name="bankid_start_time"/>
+                        <field name="bankid_status"/>
+                        <field name="bankid_signed_name"/>
                     </group>
-                </page>
+                    <group>
+                        <field name="bankid_signed_personal_number"/>
+                        <field name="bankid_signed_given_name"/>
+                        <field name="bankid_signed_surname"/>
+                        <field name="bankid_device_ip"/>
+                        <field name="bankid_issue_date"/>
+                        <field name="bankid_signature"/>
+                        <field name="bankid_ocsp_response"/>
+                        <field name="signed_date"/>
+                    </group>
+                </group>
             </xpath>
 
         </field>

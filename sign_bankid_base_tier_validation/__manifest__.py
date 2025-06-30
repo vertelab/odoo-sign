@@ -10,8 +10,8 @@
     "website": "https://github.com/vertel/odoo-base",
     "depends": ['sign_bankid', 'base_tier_validation', 'account'],
     "data": [
-        'views/tier_review_view.xml',
-        'views/account_view.xml',
+        # 'views/tier_review_view.xml',
+        # 'views/account_view.xml',
     ],
     'assets': {
         'web.assets_backend': [

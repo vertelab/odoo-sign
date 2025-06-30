@@ -24,3 +24,4 @@ class SignRequestMixin(models.AbstractModel):
 
         if self.sign_request_id:
             return self.sign_request_id.sign()
+        return None

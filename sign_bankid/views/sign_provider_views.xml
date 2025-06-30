@@ -7,10 +7,9 @@
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='provider_setup']" position="inside">
                     <group string="BankID Setup" invisible="code != 'bankid'">
-                        <field name="cert_file"/>
-
+                        <field name="bankid_cert_file"/>
+                        <field name="bankid_key_file"/>
                     </group>
-
                 </xpath>
             </field>
         </record>

@@ -39,14 +39,14 @@ class SignOcaTemplate(models.Model):
         for item in self:
             item.model = item.model_id.model or False
 
-    def get_report_data(self, record):
-        if self.report_template:
-            report_content, report_format = self.env['ir.actions.report']._render_qweb_pdf(
-                self.report_template.report_name, res_ids=record.ids
-            )
-            return base64.b64encode(report_content)
-        else:
-            return self.data
+    # def get_report_data(self, record):
+    #     if self.report_template:
+    #         report_content, report_format = self.env['ir.actions.report']._render_qweb_pdf(
+    #             self.report_template.report_name, res_ids=record.ids
+    #         )
+    #         return base64.b64encode(report_content)
+    #     else:
+    #         return self.data
 
 
     def _prepare_vrtl_sign_request_vals_from_record(self, record):

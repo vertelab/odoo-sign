@@ -12,7 +12,7 @@
             </xpath>
 
             <button name="cancel" position="after">
-                <button string="Download Document" type="object" name="download_scrive_document"/>
+                <button string="Download Document" type="object" name="download_scrive_document" invisible="sign_provider_code != 'scrive'"/>
             </button>
 
             <xpath expr="//page[@name='signers']" position="after">

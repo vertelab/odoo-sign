@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="vrtl_sign_request_signer_form_view">
-        <field name="name">vrtl.sign.request.signer.form</field>
-        <field name="model">vrtl.sign.request.signer</field>
-        <field name="arch" type="xml">
-            <form create="0">
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="role"/>
-                            <field name="partner_id"/>
-                            <field name="request_id"/>
-                            <field name="data"/>
-                        </group>
-                        <group>
-                            <field name="signed_on"/>
-                            <field name="latitude"/>
-                            <field name="longitude"/>
-                        </group>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+<!--    <record model="ir.ui.view" id="vrtl_sign_request_signer_form_view">-->
+<!--        <field name="name">vrtl.sign.request.signer.form</field>-->
+<!--        <field name="model">vrtl.sign.request.signer</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form create="0">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                            <field name="role"/>-->
+<!--                            <field name="partner_id"/>-->
+<!--                            <field name="request_id"/>-->
+<!--                            <field name="data"/>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="signed_on"/>-->
+<!--                            <field name="latitude"/>-->
+<!--                            <field name="longitude"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
 
     <record model="ir.ui.view" id="vrtl_sign_request_form_view">
         <field name="name">vrtl.sign.request.form</field>
@@ -31,6 +31,8 @@
             <form create="0">
                 <header>
                     <button string="Sign" name="sign" class="btn btn-primary" type="object" invisible="not to_sign or state != 'sent'" />
+                    <button string="Verify Signature" type="object" name="verify_signature" invisible="state != 'signed'"/>
+
                     <field name="to_sign" invisible="1" />
                     <button
                         string="Send"
@@ -331,15 +333,19 @@
                     />
                 </header>
                 <sheet>
-                    <group>
-                        <field name="is_allow_signature" invisible="1" />
-                        <field name="role" readonly="1" />
-                        <field name="partner_id" readonly="1" />
-                        <field name="request_id" readonly="1" />
-                        <field name="signed_on" />
-                        <field name="inalterable_hash" />
-                        <field name="latitude" />
-                        <field name="longitude" />
+                    <group name="basic_sign_data">
+                        <group>
+                            <field name="is_allow_signature" invisible="1" />
+                            <field name="role" readonly="1" />
+                            <field name="partner_id" readonly="1" />
+                            <field name="request_id" readonly="1" />
+                        </group>
+                        <group>
+                            <field name="signed_on" />
+                            <field name="inalterable_hash" />
+                            <field name="latitude" />
+                            <field name="longitude" />
+                        </group>
                     </group>
                 </sheet>
             </form>
