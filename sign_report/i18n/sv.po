@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sign_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250925\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 14:39+0000\n"
+"PO-Revision-Date: 2025-09-29 16:49+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: sign_report
+#: model:ir.model.fields,field_description:sign_report.field_sign_oca_template__report_template
+msgid "Report Template"
+msgstr "Rapportmall"
+
+#. module: sign_report
+#: model:ir.model,name:sign_report.model_sign_oca_template
+msgid "Sign Oca Template"
+msgstr "Signatur OCA Mall"
+
+#. module: sign_report
+#: model:ir.model,name:sign_report.model_sign_oca_role
+msgid "Sign Role"
+msgstr "Rollsignatur"
