@@ -1,0 +1,171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sign_scrive
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250925\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-30 09:03+0000\n"
+"PO-Revision-Date: 2025-09-30 11:29+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: sign_scrive
+#: model_terms:ir.ui.view,arch_db:sign_scrive.view_sign_provider_form_scrive
+msgid "API Access"
+msgstr "API-åtkomst"
+
+#. module: sign_scrive
+#: model_terms:ir.ui.view,arch_db:sign_scrive.view_sign_provider_form_scrive
+msgid "Authorize Scrive"
+msgstr "Auktorisera Scrive"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__code
+msgid "Code"
+msgstr "Kod"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_document_data
+msgid "Datas"
+msgstr "Data"
+
+#. module: sign_scrive
+#: model:ir.model.fields.selection,name:sign_scrive.selection__vrtl_sign_request__email_delivery_status__delivered
+#: model:ir.model.fields.selection,name:sign_scrive.selection__vrtl_sign_request_signer__email_delivery_status__delivered
+msgid "Delivered"
+msgstr "Levereras"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_document_id
+msgid "Document ID"
+msgstr "Dokument-ID"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_document_name
+msgid "Document Name"
+msgstr "Dokumentetsnamn"
+
+#. module: sign_scrive
+#: model_terms:ir.ui.view,arch_db:sign_scrive.vrtl_scrive_sign_request_form_view
+msgid "Download Document"
+msgstr "Ladda ner dokument"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__email_delivery_status
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request_signer__email_delivery_status
+msgid "Email Delivery Status"
+msgstr "Status för e-postleverans"
+
+#. module: sign_scrive
+#: model:ir.model,name:sign_scrive.model_sign_provider
+msgid "Manages Sign Providers"
+msgstr "Hanterar leverantörer av signering"
+
+#. module: sign_scrive
+#: model:ir.model.fields.selection,name:sign_scrive.selection__vrtl_sign_request__email_delivery_status__not_delivered
+#: model:ir.model.fields.selection,name:sign_scrive.selection__vrtl_sign_request_signer__email_delivery_status__not_delivered
+msgid "Not Delivered"
+msgstr "Ej levererad"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__rejection_reason
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request_signer__rejection_reason
+msgid "Rejection Reason"
+msgstr "Avslagsorsak"
+
+#. module: sign_scrive
+#: model:ir.model.fields.selection,name:sign_scrive.selection__sign_provider__code__scrive
+#: model_terms:ir.ui.view,arch_db:sign_scrive.vrtl_scrive_sign_request_form_view
+msgid "Scrive"
+msgstr "Scrive"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__scrive_api_secret
+msgid "Scrive API Secret"
+msgstr "Scrive API-hemlighet"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__scrive_api_token
+msgid "Scrive API pollett"
+msgstr "Skriver API-token"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__scrive_api_url
+msgid "Scrive API URL"
+msgstr "URL för Scrive API"
+
+#. module: sign_scrive
+#: model_terms:ir.ui.view,arch_db:sign_scrive.view_sign_provider_form_scrive
+msgid "Scrive Access"
+msgstr "Scrive åtkomst"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__scrive_access_secret
+msgid "Scrive Access Secret"
+msgstr "Scrive åtkomsthemlighet"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__scrive_access_token
+msgid "Scrive Access pollett"
+msgstr "Scrive åtkonstpolett"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__scrive_password
+msgid "Scrive Password"
+msgstr "Scrive lösenord"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_sign_provider__scrive_username
+msgid "Scrive Username"
+msgstr "Scrive användarnamn"
+
+#. module: sign_scrive
+#: model:ir.model,name:sign_scrive.model_vrtl_sign_request
+msgid "Sign Request"
+msgstr "Signaturbegäran"
+
+#. module: sign_scrive
+#: model:ir.model,name:sign_scrive.model_vrtl_sign_request_signer
+msgid "Sign Request Value"
+msgstr "Signaturbegäransvärde"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_signatory_id
+msgid "Signatory ID"
+msgstr "Signaturtecknare-ID"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_last_updated
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_signed_date
+msgid "Signed Date"
+msgstr "Signaturdatum"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_is_document_signed
+msgid "Signed and Sealed?"
+msgstr "Signerat och förseglat?"
+
+#. module: sign_scrive
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request__scrive_status
+#: model:ir.model.fields,field_description:sign_scrive.field_vrtl_sign_request_signer__scrive_status
+msgid "Status"
+msgstr "Status"
+
+#. module: sign_scrive
+#: model:ir.model.fields,help:sign_scrive.field_sign_provider__code
+msgid "The technical code of this payment provider."
+msgstr "Den tekniska koden för denna betalningsleverantör."
+
+#. module: sign_scrive
+#: model:ir.model.fields.selection,name:sign_scrive.selection__vrtl_sign_request__email_delivery_status__unknown
+#: model:ir.model.fields.selection,name:sign_scrive.selection__vrtl_sign_request_signer__email_delivery_status__unknown
+msgid "Unknown"
+msgstr "Okänd"
