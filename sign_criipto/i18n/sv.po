@@ -1,0 +1,219 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sign_criipto
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250925\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-30 09:02+0000\n"
+"PO-Revision-Date: 2025-09-30 11:19+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "<i class=\"fa fa-pencil\"/> Sign"
+msgstr "<i class=\"fa fa-pencil\"/> Signera"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.view_company_form
+msgid "Authorize Criipto"
+msgstr "Auktorisera Criipto"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "By entering your personal number, you confirm acceptance on behalf of"
+msgstr ""
+"Genom att ange ditt personnummer bekräftar du att du accepterar på uppdrag "
+"av"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "Close"
+msgstr "Nära"
+
+#. module: sign_criipto
+#: model:ir.model,name:sign_criipto.model_res_company
+msgid "Companies"
+msgstr "Bolag"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.view_order_form
+msgid "Create Signature"
+msgstr "Skapa signatur"
+
+#. module: sign_criipto
+#: model:ir.model.fields.selection,name:sign_criipto.selection__sign_oca_template__signing_option__criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.view_company_form
+msgid "Criipto"
+msgstr "Criipto"
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_res_company__criipto_client_id
+msgid "Criipto Client ID"
+msgstr "Criipto Kund-ID"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/res_company.py:0
+msgid "Criipto Client ID and Client Secret must be configured."
+msgstr "Criipto Client ID och Client Secret måste konfigureras."
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_res_company__criipto_client_secret
+msgid "Criipto Client Secret"
+msgstr "Criipto Klienthemlighet"
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_res_company__criipto_domain
+msgid "Criipto Domain"
+msgstr "Criipto domän"
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_res_company__criipto_redirect_uri
+msgid "Criipto Redirect URI"
+msgstr "Criipto Omdirigering URI"
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_sign_oca_request_signer__criipto_signature_id
+msgid "Criipto Signature ID"
+msgstr "Criipto Signatur ID"
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_sale_order__criipto_signature_order_id
+#: model:ir.model.fields,field_description:sign_criipto.field_sign_oca_request__criipto_signature_order_id
+msgid "Criipto Signature Order ID"
+msgstr "Criipto Signature Order ID"
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_sign_oca_request_signer__criipto_signature_url
+msgid "Criipto Signature URL"
+msgstr "URL för Criiptosignatur"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "Current document state retrieved. Click the links below to view them:"
+msgstr ""
+"Aktuellt dokumentstatus hämtat. Klicka på länkarna nedan för att visa dem:"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "Document %d"
+msgstr "Dokument %d"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "Documents"
+msgstr "Dokument"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/res_company.py:0
+msgid "Failed to create Criipto client: %s"
+msgstr "Misslyckades med att skapa Criipto-klient: %s"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "Failed to retrieve current document state: %s"
+msgstr "Misslyckades med att hämta aktuellt dokumentstatus: %s"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "No document content found in the signature order."
+msgstr "Inget dokumentinnehåll hittades i signaturbeställningen."
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "No signature order found for this sale order."
+msgstr "Ingen signaturorder hittades för denna försäljningsorder."
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "Personal Number"
+msgstr "Personnummer"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "Please add at least one signatory before requesting signatures."
+msgstr "Lägg till minst en signaturtecknare innan du begär underskrifter."
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sale_order.py:0
+msgid "Please initiate a signature request."
+msgstr "Vänligen initiera en signaturbegäran."
+
+#. module: sign_criipto
+#: model:ir.model,name:sign_criipto.model_sale_order
+msgid "Sales Order"
+msgstr "Försäljningsorder"
+
+#. module: sign_criipto
+#: model:ir.model,name:sign_criipto.model_sign_oca_template
+msgid "Sign Oca Template"
+msgstr "Signatur OCA Mall"
+
+#. module: sign_criipto
+#: model:ir.model,name:sign_criipto.model_sign_oca_request
+msgid "Sign Request"
+msgstr "Begäran om signatur"
+
+#. module: sign_criipto
+#: model:ir.model,name:sign_criipto.model_sign_oca_request_signer
+msgid "Sign Request Value"
+msgstr "Signera begärt värde"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "Sign with BankID"
+msgstr "Logga in med BankID"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.criipto_sign_oca_request_form_view
+msgid "Signature Status"
+msgstr "Signaturstatus"
+
+#. module: sign_criipto
+#. odoo-python
+#: code:addons/sign_criipto/models/sign_oca_request.py:0
+msgid "Signature order not found."
+msgstr "Signaturorder hittades inte."
+
+#. module: sign_criipto
+#: model:ir.model.fields,field_description:sign_criipto.field_sign_oca_template__signing_option
+msgid "Signing Option"
+msgstr "Signeringsalternativ"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "Type your SSN to sign"
+msgstr "Skriv ditt SSN för att signera"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "for the"
+msgstr "för"
+
+#. module: sign_criipto
+#: model_terms:ir.ui.view,arch_db:sign_criipto.sale_order_portal_template
+msgid "quote."
+msgstr "citat."
