@@ -1,0 +1,129 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sign_sale_order_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250925\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 14:40+0000\n"
+"PO-Revision-Date: 2025-09-29 16:47+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: sign_sale_order_template
+#: model_terms:ir.ui.view,arch_db:sign_sale_order_template.report_saleorder_document
+msgid "<strong>Signature</strong>"
+msgstr "<strong>Signatur</strong>"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sign_oca_template__data
+msgid "Data"
+msgstr "Uppgifter"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields.selection,name:sign_sale_order_template.selection__sign_oca_template__signing_option__internal
+msgid "Internal"
+msgstr "Internt"
+
+#. module: sign_sale_order_template
+#. odoo-python
+#: code:addons/sign_sale_order_template/controllers/portal.py:0
+msgid "Invalid order."
+msgstr "Ogiltig order."
+
+#. module: sign_sale_order_template
+#. odoo-python
+#: code:addons/sign_sale_order_template/controllers/portal.py:0
+msgid "Invalid signature data."
+msgstr "Ogiltig signaturdata."
+
+#. module: sign_sale_order_template
+#. odoo-python
+#: code:addons/sign_sale_order_template/controllers/portal.py:0
+msgid "Order signed by %s"
+msgstr "Order undertecknad av %s"
+
+#. module: sign_sale_order_template
+#: model_terms:ir.ui.view,arch_db:sign_sale_order_template.report_saleorder_document
+msgid "Oscar Morgan"
+msgstr "Oscar Morgan"
+
+#. module: sign_sale_order_template
+#: model:ir.model,name:sign_sale_order_template.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Offertmall"
+
+#. module: sign_sale_order_template
+#: model:ir.model,name:sign_sale_order_template.model_sale_order
+msgid "Sales Order"
+msgstr "Försäljningsorder"
+
+#. module: sign_sale_order_template
+#: model_terms:ir.ui.view,arch_db:sign_sale_order_template.sale_order_form_view
+msgid "Sign"
+msgstr "Signera"
+
+#. module: sign_sale_order_template
+#: model:ir.model,name:sign_sale_order_template.model_sign_oca_template
+msgid "Sign Oca Template"
+msgstr "Signera OCA mall"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sale_order__sign_request_id
+msgid "Sign Request"
+msgstr "Signera begäran"
+
+#. module: sign_sale_order_template
+#: model:ir.model,name:sign_sale_order_template.model_sign_oca_request_signer
+msgid "Sign Request Value"
+msgstr "Signera begäran värde"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sale_order_template__sign_template_id
+msgid "Sign Template"
+msgstr "Signeringsmall"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sign_oca_request_signer__signature
+#: model_terms:ir.ui.view,arch_db:sign_sale_order_template.sale_order_portal_content
+msgid "Signature"
+msgstr "Signering"
+
+#. module: sign_sale_order_template
+#. odoo-python
+#: code:addons/sign_sale_order_template/controllers/portal.py:0
+msgid "Signature is missing."
+msgstr "Signering saknas."
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sale_order__signed_doc
+msgid "Signed"
+msgstr "Signerad"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sale_order__signed_by_sales_person
+msgid "Signed by Salesperson"
+msgstr "Signerad av säljaren"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sale_order__signer_ids
+msgid "Signers"
+msgstr "Signaturer"
+
+#. module: sign_sale_order_template
+#: model:ir.model.fields,field_description:sign_sale_order_template.field_sign_oca_template__signing_option
+msgid "Signing Option"
+msgstr "Signeringsalternativ"
+
+#. module: sign_sale_order_template
+#. odoo-python
+#: code:addons/sign_sale_order_template/controllers/portal.py:0
+msgid "The order is not in a state requiring customer signature."
+msgstr "Ordern är inte i ett läge som kräver kundunderskrift."
