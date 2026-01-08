@@ -76,7 +76,7 @@ class VrtlSignRequest(models.Model):
     signed_count = fields.Integer(compute="_compute_signed_count")
     signer_count = fields.Integer(compute="_compute_signer_count")
     to_sign = fields.Boolean(compute="_compute_to_sign")
-    signatory_data = fields.Serialized(
+    signatory_data = fields.Json(
         default=lambda r: {},
         copy=False,
     )
