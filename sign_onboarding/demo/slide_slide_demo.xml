@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data noupdate="1">
+
+    <!-- Testdata: lektioner i kursen "Signering i Vertel".
+         Laddas ENDAST mot *_test-databaser (repo_apply: –without-demo=all
+         för produktion). Ersätts av riktigt innehåll i Fas 5. -->
+    <record id="slide_sign_0" model="slide.slide">
+        <field name="name">Översikt: signeringsflödet</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Från utkast till signerat dokument.&lt;/p&gt;</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="slide_sign_1" model="slide.slide">
+        <field name="name">Skicka för signering</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Mottagare, ordning, påminnelser och deadline.&lt;/p&gt;</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="slide_sign_2" model="slide.slide">
+        <field name="name">Signera med BankID</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Mobilt BankID, legitimering och tidsstämpling.&lt;/p&gt;</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="slide_sign_3" model="slide.slide">
+        <field name="name">Arkivera och spåra</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Status, bevisvärde och koppling till ärendet.&lt;/p&gt;</field>
+        <field name="sequence">40</field>
+    </record>
+
+</data></odoo>
