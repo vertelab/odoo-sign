@@ -6,7 +6,7 @@
     'description': """
 Lär dig skicka dokument för signering, följa status och arkivera det signerade.
 """,
-    'author': 'Vertel AB',
+    'author': 'Vertel Sverige AB',
     'website': 'https://vertel.se',
     'license': 'LGPL-3',
     'category': 'Website/eLearning',
