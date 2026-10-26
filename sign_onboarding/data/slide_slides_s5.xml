@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SEKTION 5: Manuellt test — verifiera att det fungerar
+         ═══════════════════════════════════════════════════════════════════ -->
+
+    <record id="slide_category_sign_s5" model="slide.slide">
+        <field name="name">5. Manuellt test</field>
+        <field name="is_category" eval="True"/>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="sequence">400</field>
+    </record>
+
+    <record id="slide_sign_s5_01" model="slide.slide">
+        <field name="name">Manuellt test — signeringsflödet</field>
+        <field name="sequence">410</field>
+        <field name="slide_category">article</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.50</field>
+        <field name="html_content" type="html">
+<section class="s_cover o_cc o_cc3 pt160 pb160">
+    <div class="container">
+        <h1 class="display-3-fs" style="text-align: center;">Manuellt test</h1>
+        <p class="lead" style="text-align: center;">Tio minuter som visar att kedjan håller hela vägen — från utskick till ett signerat dokument som går att bevisa.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt64 pb40">
+    <div class="container s_allow_columns">
+        <h2>Innan du börjar</h2>
+        <p>Du behöver:</p>
+        <ul>
+            <li>ett kort PDF-dokument att testa med — en sida räcker</li>
+            <li>två e-postadresser du kommer åt (din egen och en privat)</li>
+            <li>BankID i mobilen</li>
+        </ul>
+        <p class="small text-muted">Testa med ett dokument som inte har något värde. Du kommer att signera det, och en signering går inte att ångra.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Test 1 — förfrågan når fram</h2>
+        <ol>
+            <li>Skicka ett dokument för signering till din privata adress.</li>
+            <li>Sätt deadline till i morgon.</li>
+            <li>Öppna den privata inkorgen och kontrollera att förfrågan kommit.</li>
+            <li>Klicka på länken i mejlet.</li>
+        </ol>
+        <p><strong>Förväntat resultat:</strong> förfrågan kommer fram och länken öppnar dokumentet. Kommer mejlet inte fram är adressen felstavad, eller hamnar det i skräpposten — kontrollera där först.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Test 2 — signeringen kräver BankID</h2>
+        <ol>
+            <li>Öppna dokumentet via länken.</li>
+            <li>Försök signera <em>utan</em> att legitimera dig — avbryt BankID när det öppnas.</li>
+            <li>Kontrollera att dokumentet <strong>inte</strong> blev signerat.</li>
+            <li>Signera nu på riktigt med BankID.</li>
+        </ol>
+        <p><strong>Förväntat resultat:</strong> avbruten legitimering ger ingen signering, och den riktiga ger en. Det bevisar att identitetskontrollen faktiskt är ett krav — inte en dekoration man kan klicka förbi.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Test 3 — statusen följer med</h2>
+        <ol>
+            <li>Gå tillbaka till signeringslistan.</li>
+            <li>Kontrollera att förfrågan nu står som <strong>Signerad</strong>.</li>
+            <li>Öppna den och kontrollera att ditt namn och en tidsstämpel syns.</li>
+        </ol>
+        <p><strong>Förväntat resultat:</strong> status, namn och tid finns. Att bara statusen ändrats räcker inte — beviset ska gå att läsa ut.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Test 4 — det signerade dokumentet går att ladda ner</h2>
+        <ol>
+            <li>Ladda ner den signerade PDF:en.</li>
+            <li>Öppna den och kontrollera att underskriften syns i dokumentet.</li>
+            <li>Kontrollera att det finns ett bevisavsnitt med namn och tid.</li>
+        </ol>
+        <p><strong>Förväntat resultat:</strong> PDF:en innehåller både underskriften och beviset. Det är den filen som ska arkiveras — inte originalet.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Test 5 — arkiveringen hittas</h2>
+        <ol>
+            <li>Lägg den signerade PDF:en i dokumenthanteringen, i en mapp du kommer ihåg.</li>
+            <li>Koppla den till ett ärende eller avtal om du har ett att testa med.</li>
+            <li>Sök upp dokumentet på nytt — som om du vore någon annan som letar.</li>
+        </ol>
+        <p><strong>Förväntat resultat:</strong> du hittar dokumentet genom att söka, utan att gå via signeringslistan. Hittar du det bara via signering, ligger det på fel ställe.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb64">
+    <div class="container s_allow_columns">
+        <h2>Om det inte fungerar</h2>
+        <ol>
+            <li><strong>Mejlet kommer inte fram.</strong> Kontrollera stavningen på adressen och titta i skräpposten. Signeringsmejl fastnar ofta där första gången.</li>
+            <li><strong>BankID öppnas inte.</strong> Kontrollera att BankID är aktiverat på enheten, och att du valt rätt BankID — mobilt eller kort.</li>
+            <li><strong>Dokumentet går inte att signera.</strong> Kontrollera att det är i PDF-format och att du är inloggad som rätt mottagare.</li>
+            <li><strong>Underskriften syns inte i PDF:en.</strong> Du har förmodligen laddat ner originalfilen i stället för den signerade versionen.</li>
+        </ol>
+        <p class="small text-muted">Fungerar det fortfarande inte: hör av dig till IT och beskriv vilket av de fem testerna som stannade. Det räcker som felbeskrivning.</p>
+    </div>
+</section>
+
+<section class="s_call_to_action o_cc o_cc5 pt48 pb48">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h3>Städa efter dig</h3>
+                <p class="lead">Ta bort testdokumentet ur dokumenthanteringen och skriv i ärendet att flödet är testat. Nästa person slipper undra.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        </field>
+        <field name="description">Fem tester: förfrågan når fram, signeringen kräver BankID, statusen följer med, det signerade går att ladda ner och arkiveringen går att hitta. Med förväntat resultat och felsökning.</field>
+    </record>
+
+    <record id="slide_sign_s5_02" model="slide.slide">
+        <field name="name">🧪 Testa dina kunskaper — Manuellt test</field>
+        <field name="sequence">420</field>
+        <field name="slide_category">quiz</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.25</field>
+        <field name="quiz_first_attempt_reward">100</field>
+        <field name="quiz_second_attempt_reward">75</field>
+        <field name="quiz_third_attempt_reward">50</field>
+        <field name="quiz_fourth_attempt_reward">25</field>
+        <field name="description">Kontrollera att du vet hur du verifierar signeringsflödet själv.</field>
+    </record>
+
+    <record id="slide_sign_s5_02_q1" model="slide.question">
+        <field name="question">Hur bevisar du att identitetskontrollen faktiskt är ett krav?</field>
+        <field name="sequence">1</field>
+        <field name="slide_id" ref="slide_sign_s5_02"/>
+    </record>
+    <record id="slide_sign_s5_02_q1_a1" model="slide.answer">
+        <field name="text_value">Genom att avbryta BankID och kontrollera att dokumentet inte blev signerat</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Att bara signera på riktigt visar inte att det går att klicka förbi.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q1"/>
+    </record>
+    <record id="slide_sign_s5_02_q1_a2" model="slide.answer">
+        <field name="text_value">Genom att signera på riktigt och se att det fungerar</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Det visar att det fungerar när man gör rätt — inte att det stoppar när man inte gör det.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q1"/>
+    </record>
+    <record id="slide_sign_s5_02_q1_a3" model="slide.answer">
+        <field name="text_value">Genom att läsa i dokumentationen att BankID krävs</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Dokumentationen säger vad som ska hända — inte vad som händer hos er.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q1"/>
+    </record>
+
+    <record id="slide_sign_s5_02_q2" model="slide.question">
+        <field name="question">Varför räcker det inte att statusen ändrats till "Signerad"?</field>
+        <field name="sequence">2</field>
+        <field name="slide_id" ref="slide_sign_s5_02"/>
+    </record>
+    <record id="slide_sign_s5_02_q2_a1" model="slide.answer">
+        <field name="text_value">Beviset ska gå att läsa ut — namn och tid måste synas</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. En status utan bevis är bara en etikett.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q2"/>
+    </record>
+    <record id="slide_sign_s5_02_q2_a2" model="slide.answer">
+        <field name="text_value">Statusen kan vara felaktig</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Möjligt, men poängen är att beviset måste kontrolleras oavsett.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q2"/>
+    </record>
+    <record id="slide_sign_s5_02_q2_a3" model="slide.answer">
+        <field name="text_value">Det räcker — statusen är beviset</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Nej. Beviset ligger i dokumentet, inte i statusfältet.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q2"/>
+    </record>
+
+    <record id="slide_sign_s5_02_q3" model="slide.question">
+        <field name="question">Vilken fil ska du arkivera?</field>
+        <field name="sequence">3</field>
+        <field name="slide_id" ref="slide_sign_s5_02"/>
+    </record>
+    <record id="slide_sign_s5_02_q3_a1" model="slide.answer">
+        <field name="text_value">Den signerade PDF:en — den innehåller underskrift och bevis</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Originalet utan underskrift bevisar ingenting.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q3"/>
+    </record>
+    <record id="slide_sign_s5_02_q3_a2" model="slide.answer">
+        <field name="text_value">Originalet du laddade upp</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Det saknar underskrift och bevis.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q3"/>
+    </record>
+    <record id="slide_sign_s5_02_q3_a3" model="slide.answer">
+        <field name="text_value">En skärmbild av statusen</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">En bild är inte ett bevis — den kan ändras.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q3"/>
+    </record>
+
+    <record id="slide_sign_s5_02_q4" model="slide.question">
+        <field name="question">Hur kontrollerar du att arkiveringen ligger rätt?</field>
+        <field name="sequence">4</field>
+        <field name="slide_id" ref="slide_sign_s5_02"/>
+    </record>
+    <record id="slide_sign_s5_02_q4_a1" model="slide.answer">
+        <field name="text_value">Söker upp dokumentet som om du vore någon annan som letar</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Hittar du det bara via signeringslistan ligger det på fel ställe.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q4"/>
+    </record>
+    <record id="slide_sign_s5_02_q4_a2" model="slide.answer">
+        <field name="text_value">Kontrollerar att filen finns i nedladdningsmappen</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Då finns den bara på din dator.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q4"/>
+    </record>
+    <record id="slide_sign_s5_02_q4_a3" model="slide.answer">
+        <field name="text_value">Frågar kollegan om de minns var den lades</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Om två år finns ingen kollega att fråga.</field>
+        <field name="question_id" ref="slide_sign_s5_02_q4"/>
+    </record>
+
+    </data>
+</odoo>

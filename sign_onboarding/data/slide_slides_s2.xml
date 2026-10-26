@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SEKTION 2: Så kopplar du upp dig
+         ═══════════════════════════════════════════════════════════════════ -->
+
+    <record id="slide_category_sign_s2" model="slide.slide">
+        <field name="name">2. Så kopplar du upp dig</field>
+        <field name="is_category" eval="True"/>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="sequence">100</field>
+    </record>
+
+    <record id="slide_sign_s2_01" model="slide.slide">
+        <field name="name">Första gången — signering</field>
+        <field name="sequence">110</field>
+        <field name="slide_category">article</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.50</field>
+        <field name="html_content" type="html">
+<section class="s_cover o_cc o_cc3 pt160 pb160">
+    <div class="container">
+        <h1 class="display-3-fs" style="text-align: center;">Första gången — signering</h1>
+        <p class="lead" style="text-align: center;">Att skicka är enkelt. Att signera kräver BankID — och det är själva poängen.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt64 pb40">
+    <div class="container s_allow_columns">
+        <h2>Vad du behöver</h2>
+        <ul>
+            <li><strong>BankID</strong> i mobilen eller på kort, om du själv ska skriva under. Det är så din identitet styrks.</li>
+            <li><strong>Dokumentet</strong> i PDF-format.</li>
+            <li><strong>Mottagarnas e-postadresser</strong> — det är dit signeringslänken skickas.</li>
+        </ul>
+        <p class="small text-muted">Ska du bara skicka dokument för signering behöver du inget BankID själv. Det behövs bara för den som skriver under.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Var du hittar det</h2>
+        <p>Signering ligger i appmenyn. Där ser du tre saker: dokument du skickat, dokument som väntar på din underskrift, och de som är klara.</p>
+        <p>Väntar något på dig syns det direkt — du behöver inte leta i inkorgen efter en signeringsförfrågan.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Första gången du signerar</h2>
+        <ol>
+            <li>Öppna dokumentet som väntar på dig.</li>
+            <li>Läs igenom det. Läs faktiskt — när du signerat är det bindande.</li>
+            <li>Tryck på <strong>Signera</strong>.</li>
+            <li>Öppna BankID i mobilen och legitimera dig med din säkerhetskod.</li>
+            <li>Klart. Dokumentet markeras som signerat och du får en bekräftelse.</li>
+        </ol>
+        <p>Tar det stopp vid BankID beror det nästan alltid på att BankID inte är aktiverat på enheten, eller att du valt fel BankID (mobilt kontra kort).</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb64">
+    <div class="container s_allow_columns">
+        <h2>Bra att veta</h2>
+        <p>Du kan inte ångra en signering. När underskriften är lagd är den lagd — det är avsiktligt, annars vore beviset värdelöst.</p>
+        <p>Har du signerat fel dokument: kontakta den som skickade det. Det måste hanteras som ett ärende, inte som en ångerknapp.</p>
+    </div>
+</section>
+
+<section class="s_call_to_action o_cc o_cc5 pt48 pb48">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h3>Läs innan du trycker</h3>
+                <p class="lead">Signeringen går inte att ångra. Två minuters läsning är billigare än ett felaktigt avtal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        </field>
+        <field name="description">Vad du behöver för att signera, var du hittar signering, hur första signeringen går till med BankID — och varför den inte går att ångra.</field>
+    </record>
+
+    <record id="slide_sign_s2_02" model="slide.slide">
+        <field name="name">🧪 Testa dina kunskaper — Första gången</field>
+        <field name="sequence">140</field>
+        <field name="slide_category">quiz</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.25</field>
+        <field name="quiz_first_attempt_reward">100</field>
+        <field name="quiz_second_attempt_reward">75</field>
+        <field name="quiz_third_attempt_reward">50</field>
+        <field name="quiz_fourth_attempt_reward">25</field>
+        <field name="description">Kontrollera att du vet vad som krävs för att skicka och signera.</field>
+    </record>
+
+    <record id="slide_sign_s2_02_q1" model="slide.question">
+        <field name="question">Vad behöver du för att skicka ett dokument för signering?</field>
+        <field name="sequence">1</field>
+        <field name="slide_id" ref="slide_sign_s2_02"/>
+    </record>
+    <record id="slide_sign_s2_02_q1_a1" model="slide.answer">
+        <field name="text_value">Dokumentet i PDF och mottagarnas e-postadresser</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Eget BankID behövs bara om du själv ska skriva under.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q1"/>
+    </record>
+    <record id="slide_sign_s2_02_q1_a2" model="slide.answer">
+        <field name="text_value">Eget BankID</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Behövs bara för den som signerar.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q1"/>
+    </record>
+    <record id="slide_sign_s2_02_q1_a3" model="slide.answer">
+        <field name="text_value">Ett pappersoriginal</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Tvärtom — signeringen är digital hela vägen.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q1"/>
+    </record>
+
+    <record id="slide_sign_s2_02_q2" model="slide.question">
+        <field name="question">Vad händer om du signerar fel dokument?</field>
+        <field name="sequence">2</field>
+        <field name="slide_id" ref="slide_sign_s2_02"/>
+    </record>
+    <record id="slide_sign_s2_02_q2_a1" model="slide.answer">
+        <field name="text_value">Det går inte att ångra — kontakta den som skickade det</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. En ångerknapp skulle göra beviset värdelöst.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q2"/>
+    </record>
+    <record id="slide_sign_s2_02_q2_a2" model="slide.answer">
+        <field name="text_value">Du kan ångra inom 24 timmar</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Nej — signeringen är omedelbart bindande.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q2"/>
+    </record>
+    <record id="slide_sign_s2_02_q2_a3" model="slide.answer">
+        <field name="text_value">Du kan signera ett nytt dokument som ersätter det</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Det gamla finns kvar som signerat — hantera det som ärende.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q2"/>
+    </record>
+
+    <record id="slide_sign_s2_02_q3" model="slide.question">
+        <field name="question">Var ser du att ett dokument väntar på din underskrift?</field>
+        <field name="sequence">3</field>
+        <field name="slide_id" ref="slide_sign_s2_02"/>
+    </record>
+    <record id="slide_sign_s2_02_q3_a1" model="slide.answer">
+        <field name="text_value">Direkt i signering — du behöver inte leta i inkorgen</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Det som väntar på dig syns direkt.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q3"/>
+    </record>
+    <record id="slide_sign_s2_02_q3_a2" model="slide.answer">
+        <field name="text_value">I en separat e-post du måste spara</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">E-post skickas, men listan finns i signering.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q3"/>
+    </record>
+    <record id="slide_sign_s2_02_q3_a3" model="slide.answer">
+        <field name="text_value">Bara om du frågar en kollega</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Nej — det syns i din egen lista.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q3"/>
+    </record>
+
+    <record id="slide_sign_s2_02_q4" model="slide.question">
+        <field name="question">Signeringen stannar vid BankID. Vad är vanligaste orsaken?</field>
+        <field name="sequence">4</field>
+        <field name="slide_id" ref="slide_sign_s2_02"/>
+    </record>
+    <record id="slide_sign_s2_02_q4_a1" model="slide.answer">
+        <field name="text_value">BankID är inte aktiverat på enheten, eller fel BankID valt</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Mobilt kontra kort är en vanlig sammanblandning.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q4"/>
+    </record>
+    <record id="slide_sign_s2_02_q4_a2" model="slide.answer">
+        <field name="text_value">Dokumentet är för stort</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Storleken påverkar inte BankID-steget.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q4"/>
+    </record>
+    <record id="slide_sign_s2_02_q4_a3" model="slide.answer">
+        <field name="text_value">Systemet är trasigt</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Kontrollera BankID-aktiveringen först.</field>
+        <field name="question_id" ref="slide_sign_s2_02_q4"/>
+    </record>
+
+    </data>
+</odoo>

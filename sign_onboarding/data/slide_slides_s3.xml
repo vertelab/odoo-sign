@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SEKTION 3: Så använder du det i vardagen — skicka och följ upp
+         ═══════════════════════════════════════════════════════════════════ -->
+
+    <record id="slide_category_sign_s3" model="slide.slide">
+        <field name="name">3. Skicka och följ upp</field>
+        <field name="is_category" eval="True"/>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="sequence">200</field>
+    </record>
+
+    <record id="slide_sign_s3_01" model="slide.slide">
+        <field name="name">Skicka, påminn och följ status</field>
+        <field name="sequence">210</field>
+        <field name="slide_category">article</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.50</field>
+        <field name="html_content" type="html">
+<section class="s_cover o_cc o_cc3 pt160 pb160">
+    <div class="container">
+        <h1 class="display-3-fs" style="text-align: center;">Skicka, påminn och följ status</h1>
+        <p class="lead" style="text-align: center;">En signeringsförfrågan som ingen svarar på är ett avtal som inte finns.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt64 pb40">
+    <div class="container s_allow_columns">
+        <h2>Skicka för signering</h2>
+        <ol>
+            <li>Öppna <strong>Signering</strong> och välj att skicka ett nytt dokument.</li>
+            <li>Ladda upp PDF:en.</li>
+            <li>Lägg till mottagarna med namn och e-postadress.</li>
+            <li>Välj <strong>ordning</strong> — se nedan.</li>
+            <li>Sätt en <strong>deadline</strong>.</li>
+            <li>Skriv ett meddelande som förklarar vad det gäller, och skicka.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Ordning på underskrifterna</h2>
+        <p>Ibland spelar ordningen roll, ibland inte:</p>
+        <ul>
+            <li><strong>Parallellt</strong> — alla får dokumentet samtidigt och kan signera när de vill. Snabbast. Använd när underskrifterna är oberoende av varandra.</li>
+            <li><strong>I tur och ordning</strong> — person två får dokumentet först när person ett signerat. Använd när en part ska godkänna innan nästa ser det, eller när det är en kedja av godkännanden.</li>
+        </ul>
+        <p class="small text-muted">Väljer du fel ordning märks det oftast genom att någon sitter och väntar på ett dokument de aldrig får. Fundera en gång innan du skickar.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Påminnelser och deadline</h2>
+        <p>Sätt alltid en deadline. Utan den finns ingen anledning att skynda, och förfrågan blir liggande.</p>
+        <p>Påminnelser skickas automatiskt till den som inte signerat. Du behöver inte jaga — men du bör titta till statusen om deadlinen närmar sig, så att du kan ringa i stället för att bara påminna igen.</p>
+      </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Följa status</h2>
+        <p>Varje förfrågan har en status som talar om exakt var den står:</p>
+        <table border="1" cellpadding="4" cellspacing="0" class="table table-sm">
+            <thead>
+                <tr><th>Status</th><th>Betyder</th><th>Vad du gör</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Utkast</td><td>Inte skickad än</td><td>Kontrollera mottagare och skicka</td></tr>
+                <tr><td>Skickad</td><td>Väntar på underskrift</td><td>Invänta, eller påminn om det dröjer</td></tr>
+                <tr><td>Delvis signerad</td><td>Några har skrivit under</td><td>Se vem som återstår</td></tr>
+                <tr><td>Signerad</td><td>Alla har skrivit under</td><td>Arkivera och koppla till ärendet</td></tr>
+                <tr><td>Avvisad</td><td>Någon har nekat</td><td>Ta reda på varför innan du skickar igen</td></tr>
+                <tr><td>Utgången</td><td>Deadline passerad</td><td>Skicka en ny förfrågan</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb64">
+    <div class="container s_allow_columns">
+        <h2>Om någon avvisar</h2>
+        <p>En avvisad signering är information, inte ett misslyckande. Ta reda på varför innan du skickar en ny förfrågan — annars avvisas den igen.</p>
+        <p>Vanliga skäl: fel belopp, fel datum, fel part, eller att personen inte har behörighet att skriva under. Alla dessa kräver en ändring i dokumentet, inte bara en påminnelse.</p>
+    </div>
+</section>
+
+<section class="s_call_to_action o_cc o_cc5 pt48 pb48">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h3>Sätt alltid deadline</h3>
+                <p class="lead">Utan deadline finns ingen anledning att skynda. Det är den enskilt vanligaste orsaken till att signeringar blir liggande.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        </field>
+        <field name="description">Skicka för signering, välja ordning på underskrifterna, sätta deadline, följa status i sex lägen och hantera en avvisad signering.</field>
+    </record>
+
+    <record id="slide_sign_s3_02" model="slide.slide">
+        <field name="name">🧪 Testa dina kunskaper — Skicka och följ upp</field>
+        <field name="sequence">240</field>
+        <field name="slide_category">quiz</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.25</field>
+        <field name="quiz_first_attempt_reward">100</field>
+        <field name="quiz_second_attempt_reward">75</field>
+        <field name="quiz_third_attempt_reward">50</field>
+        <field name="quiz_fourth_attempt_reward">25</field>
+        <field name="description">Kontrollera att du kan skicka, följa upp och hantera avvisade signeringar.</field>
+    </record>
+
+    <record id="slide_sign_s3_02_q1" model="slide.question">
+        <field name="question">När ska du välja ordningen "i tur och ordning" i stället för parallellt?</field>
+        <field name="sequence">1</field>
+        <field name="slide_id" ref="slide_sign_s3_02"/>
+    </record>
+    <record id="slide_sign_s3_02_q1_a1" model="slide.answer">
+        <field name="text_value">När en part ska godkänna innan nästa ser dokumentet</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Vid oberoende underskrifter är parallellt snabbare.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q1"/>
+    </record>
+    <record id="slide_sign_s3_02_q1_a2" model="slide.answer">
+        <field name="text_value">Alltid — det är säkrast</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Det gör bara processen långsammare utan att tillföra något.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q1"/>
+    </record>
+    <record id="slide_sign_s3_02_q1_a3" model="slide.answer">
+        <field name="text_value">När mottagarna är många</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Antalet avgör inte — beroendet gör det.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q1"/>
+    </record>
+
+    <record id="slide_sign_s3_02_q2" model="slide.question">
+        <field name="question">Varför ska du alltid sätta en deadline?</field>
+        <field name="sequence">2</field>
+        <field name="slide_id" ref="slide_sign_s3_02"/>
+    </record>
+    <record id="slide_sign_s3_02_q2_a1" model="slide.answer">
+        <field name="text_value">Utan deadline finns ingen anledning att skynda — förfrågan blir liggande</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Det är den vanligaste orsaken till att signeringar inte blir klara.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q2"/>
+    </record>
+    <record id="slide_sign_s3_02_q2_a2" model="slide.answer">
+        <field name="text_value">För att dokumentet ska bli juridiskt giltigt</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Giltigheten hänger inte på deadlinen.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q2"/>
+    </record>
+    <record id="slide_sign_s3_02_q2_a3" model="slide.answer">
+        <field name="text_value">För att påminnelser ska skickas</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Påminnelser går att ha ändå — deadlinen är för att skapa brådska.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q2"/>
+    </record>
+
+    <record id="slide_sign_s3_02_q3" model="slide.question">
+        <field name="question">Status är "Delvis signerad". Vad betyder det?</field>
+        <field name="sequence">3</field>
+        <field name="slide_id" ref="slide_sign_s3_02"/>
+    </record>
+    <record id="slide_sign_s3_02_q3_a1" model="slide.answer">
+        <field name="text_value">Några har skrivit under, andra återstår</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Se vem som återstår och agera därefter.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q3"/>
+    </record>
+    <record id="slide_sign_s3_02_q3_a2" model="slide.answer">
+        <field name="text_value">Dokumentet är delvis uppladdat</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Uppladdningen sker innan förfrågan skickas.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q3"/>
+    </record>
+    <record id="slide_sign_s3_02_q3_a3" model="slide.answer">
+        <field name="text_value">Någon har signerat fel del av dokumentet</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Det finns ingen "del av dokumentet" — det gäller personer.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q3"/>
+    </record>
+
+    <record id="slide_sign_s3_02_q4" model="slide.question">
+        <field name="question">Någon har avvisat signeringen. Vad gör du?</field>
+        <field name="sequence">4</field>
+        <field name="slide_id" ref="slide_sign_s3_02"/>
+    </record>
+    <record id="slide_sign_s3_02_q4_a1" model="slide.answer">
+        <field name="text_value">Tar reda på varför innan du skickar en ny förfrågan</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Annars avvisas den igen — felet sitter oftast i dokumentet.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q4"/>
+    </record>
+    <record id="slide_sign_s3_02_q4_a2" model="slide.answer">
+        <field name="text_value">Skickar igen direkt</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Då upprepas problemet.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q4"/>
+    </record>
+    <record id="slide_sign_s3_02_q4_a3" model="slide.answer">
+        <field name="text_value">Skickar till någon annan i stället</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Bara om det är rätt person som saknades — inte som genväg.</field>
+        <field name="question_id" ref="slide_sign_s3_02_q4"/>
+    </record>
+
+    </data>
+</odoo>
