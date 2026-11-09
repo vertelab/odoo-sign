@@ -280,6 +280,7 @@ class VrtlSignRequest(models.Model):
 
 class VrtlSignRequestSigner(models.Model):
     _name = "vrtl.sign.request.signer"
+    _inherit = ["portal.mixin"]
     _description = "Sign Request Value"
 
     data = fields.Binary(related="request_id.data")
@@ -287,7 +288,7 @@ class VrtlSignRequestSigner(models.Model):
     sign_provider_code = fields.Selection(related="request_id.sign_provider_id.code", string="Sign Provider Code")
     partner_name = fields.Char(related="partner_id.name")
     partner_id = fields.Many2one("res.partner", required=True, ondelete="restrict")
-    role = fields.Char(required=True, ondelete="restrict")
+    role = fields.Char(required=True)
     signed_on = fields.Datetime()
     signature_hash = fields.Char()
     model = fields.Char(compute="_compute_model", store=True)
