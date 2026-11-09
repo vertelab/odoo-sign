@@ -7,6 +7,8 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, UserError
 from bankid import BankIDClient
 
+from .bankid_credentials import BankIDCredentials
+
 _logger = logging.getLogger(__name__)
 
 
@@ -21,16 +23,35 @@ class BankIDSignProvider(models.Model):
     bankid_cert_file = fields.Binary(string="BankID Certificate")
     bankid_key_file = fields.Binary(string="BankID Private Key")
 
-    def bank_id_client(self):
-        """Get BankID client instance"""
-        bankid_cert_file = "/home/ayomir/Downloads/pybankid/bankid/certs/FPTestcert5_20240610_cert.pem"
-        bankid_key_file = "/home/ayomir/Downloads/pybankid/bankid/certs/FPTestcert5_20240610_key.pem"
+    def _bankid_test_server(self):
+        """BankID test server is used unless the provider is explicitly enabled."""
+        return self.state != 'enabled'
 
-        if self.state == 'enabled':
-            client = BankIDClient(certificates=(self.bankid_cert_file, self.bankid_key_file))
-        else:
-            client = BankIDClient(certificates=(bankid_cert_file, bankid_key_file), test_server=True)
-        return client
+    def _bankid_client_context(self):
+        """Return a BankIDCredentials context yielding (cert_path, key_path).
+
+        Certificates come from the uploaded Binary fields. The bundled pybankid
+        test certificate is only used when the provider is not enabled, so a
+        production provider can never sign with test credentials.
+        """
+        return BankIDCredentials(
+            cert_binary=self.bankid_cert_file,
+            key_binary=self.bankid_key_file,
+            allow_test_fallback=self._bankid_test_server(),
+        )
+
+    def bank_id_call(self, method_name, *args, **kwargs):
+        """Call a BankIDClient method with the certificates materialised.
+
+        BankIDClient needs *file paths*, so the temporary certificate files
+        must stay alive for the whole call. This keeps them alive and removes
+        them afterwards.
+        """
+        with self._bankid_client_context() as (cert, key):
+            client = BankIDClient(
+                certificates=(cert, key), test_server=self._bankid_test_server()
+            )
+            return getattr(client, method_name)(*args, **kwargs)
 
     def prepare_bankid_request(self, sign_request):
         """Prepare BankID request data"""
@@ -45,11 +66,9 @@ class BankIDSignProvider(models.Model):
         try:
             _logger.info(f"Starting BankID signature for request ID: {sign_request.id}")
 
-            # Get BankID client
-            client = self.bank_id_client()
-
             # Make sign request to BankID
-            response = client.sign(
+            response = self.bank_id_call(
+                'sign',
                 end_user_ip=provider_data.get('end_user_ip', '0.0.0.0'),
                 user_visible_data=provider_data.get('user_visible_data', f"Sign {sign_request.name}")
             )
@@ -113,8 +132,7 @@ class BankIDSignProvider(models.Model):
             return {'status': 'failed', 'message': 'No active BankID session'}
 
         try:
-            client = self.bank_id_client()
-            collect_response = client.collect(signer.bankid_order_ref)
+            collect_response = self.bank_id_call('collect', signer.bankid_order_ref)
 
             status = collect_response.get('status')
             _logger.info(f"BankID status check - Order: {signer.bankid_order_ref}, Status: {status}")
@@ -141,10 +159,10 @@ class BankIDSignProvider(models.Model):
             return ""
 
         try:
-            client = self.bank_id_client()
             start_timestamp = int(signer.bankid_start_time.timestamp())
 
-            qr_content = client.generate_qr_code_content(
+            qr_content = self.bank_id_call(
+                'generate_qr_code_content',
                 signer.bankid_qr_start_token,
                 start_timestamp,
                 signer.bankid_qr_start_secret,
@@ -205,8 +223,7 @@ class BankIDSignProvider(models.Model):
             return False
 
         try:
-            client = self.bank_id_client()
-            result = client.cancel(signer.bankid_order_ref)
+            result = self.bank_id_call('cancel', signer.bankid_order_ref)
 
             if result:
                 signer.write({

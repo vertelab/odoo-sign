@@ -56,16 +56,14 @@ class BankIDResource(models.AbstractModel):
             if not self.id:
                 return {'success': False, 'error': 'No record ID available'}
 
-            # Get BankID client
-            client = self.env.company.bank_id_client()
-
             # Get end user IP from request context
             end_user_ip = '0.0.0.0'  # Default fallback
             if hasattr(self.env, 'context') and 'request' in self.env.context:
                 end_user_ip = self.env.context.get('request', {}).get('httprequest', {}).get('remote_addr', '0.0.0.0')
 
             # Make sign request to BankID
-            response = client.sign(
+            response = self.env.company.bank_id_call(
+                'sign',
                 end_user_ip=end_user_ip,
                 user_visible_data=f"Sign {self._name} {self.id}"
             )
@@ -106,8 +104,8 @@ class BankIDResource(models.AbstractModel):
             return {'status': 'failed', 'message': 'No active BankID session'}
 
         try:
-            client = self.env.company.bank_id_client()
-            collect_response = client.collect(self.bankid_order_ref)
+            collect_response = self.env.company.bank_id_call(
+                'collect', self.bankid_order_ref)
 
             status = collect_response.get('status')
             _logger.info(f"BankID status check - Order: {self.bankid_order_ref}, Status: {status}")
@@ -145,13 +143,12 @@ class BankIDResource(models.AbstractModel):
             return ""
 
         try:
-            client = self.env.company.bank_id_client()
-
             # Convert start_time to timestamp
             start_timestamp = int(self.bankid_start_time.timestamp())
 
             # Generate QR code content - BankID library handles the time-based updates internally
-            qr_content = client.generate_qr_code_content(
+            qr_content = self.env.company.bank_id_call(
+                'generate_qr_code_content',
                 self.bankid_qr_start_token,
                 start_timestamp,
                 self.bankid_qr_start_secret,
@@ -169,8 +166,7 @@ class BankIDResource(models.AbstractModel):
             return False
 
         try:
-            client = self.env.company.bank_id_client()
-            result = client.cancel(self.bankid_order_ref)
+            result = self.env.company.bank_id_call('cancel', self.bankid_order_ref)
 
             if result:
                 self.write({
