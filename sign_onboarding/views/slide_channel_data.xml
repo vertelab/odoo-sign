@@ -12,7 +12,7 @@
         <field name="allow_comment" eval="True"/>
         <field name="promote_strategy">latest</field>
         <field name="is_published" eval="True"/>
-        <field name="description">Lär dig skicka dokument för signering, följa status och arkivera det signerade. Kursen beskriver signeringsflödet i appen Signering.</field>
+        <field name="description">Lär dig skicka dokument för signering, följa status och arkivera det signerade. Kursen beskriver signeringsflödet i appen Signering — från förfrågan till arkiverat dokument.</field>
     </record>
 
 </data></odoo>
