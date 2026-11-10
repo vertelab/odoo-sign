@@ -48,7 +48,7 @@ class SignOcaRequestSigner(models.Model):
     def _get_pdf_page_signature(self, item, box):
         import base64
         packet = BytesIO()
-        can = canvas.Canvas(packet, pagesize=(box.getWidth(), box.getHeight()))
+        can = canvas.Canvas(packet, pagesize=(box.width, box.height))
         if not item["value"]:
             return False
         try:
@@ -62,15 +62,15 @@ class SignOcaRequestSigner(models.Model):
 
             par = Image(
                 BytesIO(image_data),
-                width=item["width"] / 100 * float(box.getWidth()),
-                height=item["height"] / 100 * float(box.getHeight()),
+                width=item["width"] / 100 * float(box.width),
+                height=item["height"] / 100 * float(box.height),
             )
             par.drawOn(
                 can,
-                item["position_x"] / 100 * float(box.getWidth()),
+                item["position_x"] / 100 * float(box.width),
                 (100 - item["position_y"] - item["height"])
                 / 100
-                * float(box.getHeight()),
+                * float(box.height),
             )
         except Exception as e:
             _logger.info(f"Error decoding Base64 string: {e}")
@@ -78,4 +78,4 @@ class SignOcaRequestSigner(models.Model):
         can.save()
         packet.seek(0)
         new_pdf = PdfFileReader(packet)
-        return new_pdf.getPage(0)
+        return new_pdf.get_page(0)

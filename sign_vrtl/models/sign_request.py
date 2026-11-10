@@ -383,8 +383,8 @@ class VrtlSignRequestSigner(models.Model):
         reader = PdfFileReader(input_data)
         output = PdfFileWriter()
         pages = {}
-        for page_number in range(1, reader.numPages + 1):
-            pages[page_number] = reader.getPage(page_number - 1)
+        for page_number in range(1, reader.num_pages + 1):
+            pages[page_number] = reader.get_page(page_number - 1)
 
         for key in signatory_data:
             if signatory_data[key]["role_id"] == self.role_id.id:
@@ -392,12 +392,12 @@ class VrtlSignRequestSigner(models.Model):
                 self._check_signable(items[key])
                 item = items[key]
                 page = pages[item["page"]]
-                new_page = self._get_pdf_page(item, page.mediaBox)
+                new_page = self._get_pdf_page(item, page.mediabox)
                 if new_page:
-                    page.mergePage(new_page)
+                    page.merge_page(new_page)
                 pages[item["page"]] = page
         for page_number in pages:
-            output.addPage(pages[page_number])
+            output.add_page(pages[page_number])
         output_stream = BytesIO()
         output.write(output_stream)
         output_stream.seek(0)
