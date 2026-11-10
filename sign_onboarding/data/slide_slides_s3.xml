@@ -14,7 +14,7 @@
     </record>
 
     <record id="slide_sign_s3_01" model="slide.slide">
-        <field name="name">Skicka, påminn och följ status</field>
+        <field name="name">Skicka, följ status och avbryt</field>
         <field name="sequence">210</field>
         <field name="slide_category">article</field>
         <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
@@ -24,43 +24,37 @@
         <field name="html_content" type="html">
 <section class="s_cover o_cc o_cc3 pt160 pb160">
     <div class="container">
-        <h1 class="display-3-fs" style="text-align: center;">Skicka, påminn och följ status</h1>
+        <h1 class="display-3-fs" style="text-align: center;">Skicka, följ status och avbryt</h1>
         <p class="lead" style="text-align: center;">En signeringsförfrågan som ingen svarar på är ett avtal som inte finns.</p>
     </div>
 </section>
 
 <section class="s_text_block pt64 pb40">
     <div class="container s_allow_columns">
-        <h2>Skicka för signering</h2>
+        <h2>Skapa en förfrågan</h2>
         <ol>
-            <li>Öppna <strong>Signering</strong> och välj att skicka ett nytt dokument.</li>
+            <li>Öppna <strong>Signering</strong> och skapa en ny förfrågan.</li>
+            <li>Ge den ett namn som går att känna igen — till exempel <em>Avtal Kunden AB 2026</em>. Namnet är det du själv söker på senare.</li>
             <li>Ladda upp PDF:en.</li>
-            <li>Lägg till mottagarna med namn och e-postadress.</li>
-            <li>Välj <strong>ordning</strong> — se nedan.</li>
-            <li>Sätt en <strong>deadline</strong>.</li>
-            <li>Skriv ett meddelande som förklarar vad det gäller, och skicka.</li>
+            <li>Lägg till mottagarna: en rad per person, med roll och kontakt.</li>
+            <li>Öppna förfrågan och placera ut signaturfälten på rätt plats i dokumentet.</li>
+            <li>Koppla förfrågan till ärendet eller avtalet, om du har ett att koppla till.</li>
+            <li>Skicka.</li>
         </ol>
+        <p class="small text-muted">Förfrågan sparas som utkast tills du skickar den. Ingenting går ut förrän du trycker på skicka.</p>
     </div>
 </section>
 
 <section class="s_text_block pt32 pb40">
     <div class="container s_allow_columns">
-        <h2>Ordning på underskrifterna</h2>
-        <p>Ibland spelar ordningen roll, ibland inte:</p>
+        <h2>Roller och mottagare</h2>
+        <p>Varje mottagare får en roll — till exempel <strong>Customer</strong> eller <strong>Employee</strong>. Rollen styr vilka fält personen ser och får fylla i.</p>
         <ul>
-            <li><strong>Parallellt</strong> — alla får dokumentet samtidigt och kan signera när de vill. Snabbast. Använd när underskrifterna är oberoende av varandra.</li>
-            <li><strong>I tur och ordning</strong> — person två får dokumentet först när person ett signerat. Använd när en part ska godkänna innan nästa ser det, eller när det är en kedja av godkännanden.</li>
+            <li><strong>En person, en rad.</strong> Två personer på samma rad blir en signatur, inte två.</li>
+            <li><strong>Rätt roll.</strong> Sätter du fel roll kan personen inte fylla i sina fält — och då stannar allt.</li>
+            <li><strong>Rätt e-post.</strong> Länken skickas dit, och den är personlig.</li>
         </ul>
-        <p class="small text-muted">Väljer du fel ordning märks det oftast genom att någon sitter och väntar på ett dokument de aldrig får. Fundera en gång innan du skickar.</p>
     </div>
-</section>
-
-<section class="s_text_block pt32 pb40">
-    <div class="container s_allow_columns">
-        <h2>Påminnelser och deadline</h2>
-        <p>Sätt alltid en deadline. Utan den finns ingen anledning att skynda, och förfrågan blir liggande.</p>
-        <p>Påminnelser skickas automatiskt till den som inte signerat. Du behöver inte jaga — men du bör titta till statusen om deadlinen närmar sig, så att du kan ringa i stället för att bara påminna igen.</p>
-      </div>
 </section>
 
 <section class="s_text_block pt32 pb40">
@@ -72,22 +66,30 @@
                 <tr><th>Status</th><th>Betyder</th><th>Vad du gör</th></tr>
             </thead>
             <tbody>
-                <tr><td>Utkast</td><td>Inte skickad än</td><td>Kontrollera mottagare och skicka</td></tr>
-                <tr><td>Skickad</td><td>Väntar på underskrift</td><td>Invänta, eller påminn om det dröjer</td></tr>
-                <tr><td>Delvis signerad</td><td>Några har skrivit under</td><td>Se vem som återstår</td></tr>
+                <tr><td>Utkast</td><td>Inte skickad — bara du ser den</td><td>Kontrollera mottagare, fält och skicka</td></tr>
+                <tr><td>Skickad</td><td>Väntar på underskrift</td><td>Invänta, eller hör av dig om det dröjer</td></tr>
                 <tr><td>Signerad</td><td>Alla har skrivit under</td><td>Arkivera och koppla till ärendet</td></tr>
-                <tr><td>Avvisad</td><td>Någon har nekat</td><td>Ta reda på varför innan du skickar igen</td></tr>
-                <tr><td>Utgången</td><td>Deadline passerad</td><td>Skicka en ny förfrågan</td></tr>
+                <tr><td>Avbruten</td><td>Förfrågan är stoppad</td><td>Skapa en ny om det fortfarande behövs</td></tr>
             </tbody>
         </table>
+        <p>Under <strong>Skickad</strong> ser du vem som signerat och vem som återstår — varje mottagare har sitt eget datum och klockslag när den skrev under.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Avbryta en förfrågan</h2>
+        <p>Skickat fel? En förfrågan som ännu inte är signerad kan avbrytas. Då stängs länkarna — ingen kan längre skriva under.</p>
+        <p class="small text-muted">En redan signerad förfrågan kan också avbrytas, men underskrifterna som redan lagts försvinner inte ur historiken. Har någon hunnit signera fel dokument är det ett ärende, inte en ångerknapp.</p>
+        <p>Efter ett avbrott: rätta felet i dokumentet och skapa en <strong>ny</strong> förfrågan. Skicka aldrig samma länk igen.</p>
     </div>
 </section>
 
 <section class="s_text_block pt32 pb64">
     <div class="container s_allow_columns">
-        <h2>Om någon avvisar</h2>
-        <p>En avvisad signering är information, inte ett misslyckande. Ta reda på varför innan du skickar en ny förfrågan — annars avvisas den igen.</p>
-        <p>Vanliga skäl: fel belopp, fel datum, fel part, eller att personen inte har behörighet att skriva under. Alla dessa kräver en ändring i dokumentet, inte bara en påminnelse.</p>
+        <h2>Om någon inte signerar</h2>
+        <p>Det finns ingen automatisk påminnelse — du behöver själv höra av dig. Det är enklare än det låter, och det fungerar bättre: ett samtal löser oftast det som ett påminnelsemejl inte gör.</p>
+        <p>Vanliga skäl: mejlet hamnade i skräpposten, personen har inte behörighet att skriva under, eller så är det fel person för uppgiften. Alla tre kräver en åtgärd, inte bara en påminnelse.</p>
     </div>
 </section>
 
@@ -95,14 +97,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <h3>Sätt alltid deadline</h3>
-                <p class="lead">Utan deadline finns ingen anledning att skynda. Det är den enskilt vanligaste orsaken till att signeringar blir liggande.</p>
+                <h3>Namnge förfrågan med omsorg</h3>
+                <p class="lead">Namnet är det enda du har att söka på om ett halvår. Skriv vad det gäller och vem det gäller.</p>
             </div>
         </div>
     </div>
 </section>
         </field>
-        <field name="description">Skicka för signering, välja ordning på underskrifterna, sätta deadline, följa status i sex lägen och hantera en avvisad signering.</field>
+        <field name="description">Skapa en signeringsförfrågan, sätta roller och mottagare, följa de fyra statuslägena och avbryta en felaktig förfrågan.</field>
     </record>
 
     <record id="slide_sign_s3_02" model="slide.slide">
@@ -117,70 +119,70 @@
         <field name="quiz_second_attempt_reward">75</field>
         <field name="quiz_third_attempt_reward">50</field>
         <field name="quiz_fourth_attempt_reward">25</field>
-        <field name="description">Kontrollera att du kan skicka, följa upp och hantera avvisade signeringar.</field>
+        <field name="description">Kontrollera att du kan skapa, följa upp och avbryta signeringsförfrågningar.</field>
     </record>
 
     <record id="slide_sign_s3_02_q1" model="slide.question">
-        <field name="question">När ska du välja ordningen "i tur och ordning" i stället för parallellt?</field>
+        <field name="question">Två personer ska skriva under samma dokument. Hur lägger du upp det?</field>
         <field name="sequence">1</field>
         <field name="slide_id" ref="slide_sign_s3_02"/>
     </record>
     <record id="slide_sign_s3_02_q1_a1" model="slide.answer">
-        <field name="text_value">När en part ska godkänna innan nästa ser dokumentet</field>
+        <field name="text_value">En rad per person, med varsin roll</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Vid oberoende underskrifter är parallellt snabbare.</field>
+        <field name="comment">Rätt. Två personer på samma rad blir bara en signatur.</field>
         <field name="question_id" ref="slide_sign_s3_02_q1"/>
     </record>
     <record id="slide_sign_s3_02_q1_a2" model="slide.answer">
-        <field name="text_value">Alltid — det är säkrast</field>
+        <field name="text_value">Båda namnen på samma rad</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Det gör bara processen långsammare utan att tillföra något.</field>
+        <field name="comment">Då kollapsar de till en mottagare.</field>
         <field name="question_id" ref="slide_sign_s3_02_q1"/>
     </record>
     <record id="slide_sign_s3_02_q1_a3" model="slide.answer">
-        <field name="text_value">När mottagarna är många</field>
+        <field name="text_value">Två separata förfrågningar med samma dokument</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Antalet avgör inte — beroendet gör det.</field>
+        <field name="comment">Onödigt — en förfrågan kan ha flera mottagare.</field>
         <field name="question_id" ref="slide_sign_s3_02_q1"/>
     </record>
 
     <record id="slide_sign_s3_02_q2" model="slide.question">
-        <field name="question">Varför ska du alltid sätta en deadline?</field>
+        <field name="question">Varför ska du ge förfrågan ett tydligt namn?</field>
         <field name="sequence">2</field>
         <field name="slide_id" ref="slide_sign_s3_02"/>
     </record>
     <record id="slide_sign_s3_02_q2_a1" model="slide.answer">
-        <field name="text_value">Utan deadline finns ingen anledning att skynda — förfrågan blir liggande</field>
+        <field name="text_value">Namnet är det du söker på när du ska hitta den igen</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Det är den vanligaste orsaken till att signeringar inte blir klara.</field>
+        <field name="comment">Rätt. Ett halvår senare är namnet allt du har.</field>
         <field name="question_id" ref="slide_sign_s3_02_q2"/>
     </record>
     <record id="slide_sign_s3_02_q2_a2" model="slide.answer">
-        <field name="text_value">För att dokumentet ska bli juridiskt giltigt</field>
+        <field name="text_value">Mottagaren ser namnet och måste godkänna det</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Giltigheten hänger inte på deadlinen.</field>
+        <field name="comment">Namnet är för dig, inte för mottagaren.</field>
         <field name="question_id" ref="slide_sign_s3_02_q2"/>
     </record>
     <record id="slide_sign_s3_02_q2_a3" model="slide.answer">
-        <field name="text_value">För att påminnelser ska skickas</field>
+        <field name="text_value">Det krävs för att dokumentet ska bli juridiskt giltigt</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Påminnelser går att ha ändå — deadlinen är för att skapa brådska.</field>
+        <field name="comment">Giltigheten hänger inte på namnet.</field>
         <field name="question_id" ref="slide_sign_s3_02_q2"/>
     </record>
 
     <record id="slide_sign_s3_02_q3" model="slide.question">
-        <field name="question">Status är "Delvis signerad". Vad betyder det?</field>
+        <field name="question">Status är "Skickad". Vad betyder det?</field>
         <field name="sequence">3</field>
         <field name="slide_id" ref="slide_sign_s3_02"/>
     </record>
     <record id="slide_sign_s3_02_q3_a1" model="slide.answer">
-        <field name="text_value">Några har skrivit under, andra återstår</field>
+        <field name="text_value">Förfrågan är ute och väntar på underskrift</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
         <field name="comment">Rätt. Se vem som återstår och agera därefter.</field>
@@ -202,29 +204,29 @@
     </record>
 
     <record id="slide_sign_s3_02_q4" model="slide.question">
-        <field name="question">Någon har avvisat signeringen. Vad gör du?</field>
+        <field name="question">Du har skickat fel dokument. Vad gör du?</field>
         <field name="sequence">4</field>
         <field name="slide_id" ref="slide_sign_s3_02"/>
     </record>
     <record id="slide_sign_s3_02_q4_a1" model="slide.answer">
-        <field name="text_value">Tar reda på varför innan du skickar en ny förfrågan</field>
+        <field name="text_value">Avbryter förfrågan och skapar en ny med rätt dokument</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Annars avvisas den igen — felet sitter oftast i dokumentet.</field>
+        <field name="comment">Rätt. Avbrottet stänger länkarna så ingen signerar fel fil.</field>
         <field name="question_id" ref="slide_sign_s3_02_q4"/>
     </record>
     <record id="slide_sign_s3_02_q4_a2" model="slide.answer">
-        <field name="text_value">Skickar igen direkt</field>
+        <field name="text_value">Skickar ett nytt mejl med rätt dokument till samma länk</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Då upprepas problemet.</field>
+        <field name="comment">Länken pekar på den gamla förfrågan — den måste avbrytas först.</field>
         <field name="question_id" ref="slide_sign_s3_02_q4"/>
     </record>
     <record id="slide_sign_s3_02_q4_a3" model="slide.answer">
-        <field name="text_value">Skickar till någon annan i stället</field>
+        <field name="text_value">Låter det vara — mottagaren märker felet</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Bara om det är rätt person som saknades — inte som genväg.</field>
+        <field name="comment">Då kan ett felaktigt dokument bli signerat och bindande.</field>
         <field name="question_id" ref="slide_sign_s3_02_q4"/>
     </record>
 

@@ -25,7 +25,7 @@
 <section class="s_cover o_cc o_cc3 pt160 pb160">
     <div class="container">
         <h1 class="display-3-fs" style="text-align: center;">Manuellt test</h1>
-        <p class="lead" style="text-align: center;">Tio minuter som visar att kedjan håller hela vägen — från utskick till ett signerat dokument som går att bevisa.</p>
+        <p class="lead" style="text-align: center;">Tio minuter som visar att kedjan håller hela vägen — från utkast till ett signerat dokument som går att bevisa.</p>
     </div>
 </section>
 
@@ -36,7 +36,7 @@
         <ul>
             <li>ett kort PDF-dokument att testa med — en sida räcker</li>
             <li>två e-postadresser du kommer åt (din egen och en privat)</li>
-            <li>BankID i mobilen</li>
+            <li>behörighet till appen <strong>Signering</strong></li>
         </ul>
         <p class="small text-muted">Testa med ett dokument som inte har något värde. Du kommer att signera det, och en signering går inte att ångra.</p>
     </div>
@@ -44,37 +44,51 @@
 
 <section class="s_text_block pt32 pb40">
     <div class="container s_allow_columns">
-        <h2>Test 1 — förfrågan når fram</h2>
+        <h2>Test 1 — förfrågan skapas och skickas</h2>
         <ol>
-            <li>Skicka ett dokument för signering till din privata adress.</li>
-            <li>Sätt deadline till i morgon.</li>
-            <li>Öppna den privata inkorgen och kontrollera att förfrågan kommit.</li>
-            <li>Klicka på länken i mejlet.</li>
+            <li>Öppna <strong>Signering</strong> och skapa en ny förfrågan.</li>
+            <li>Ge den namnet <em>Test signering</em>.</li>
+            <li>Ladda upp din test-PDF.</li>
+            <li>Lägg till dig själv som mottagare med rollen <strong>Customer</strong>, på din privata adress.</li>
+            <li>Spara. Kontrollera att status är <strong>Utkast</strong>.</li>
+            <li>Öppna förfrågan, placera ut ett signaturfält, och skicka.</li>
         </ol>
-        <p><strong>Förväntat resultat:</strong> förfrågan kommer fram och länken öppnar dokumentet. Kommer mejlet inte fram är adressen felstavad, eller hamnar det i skräpposten — kontrollera där först.</p>
+        <p><strong>Förväntat resultat:</strong> status går från <strong>Utkast</strong> till <strong>Skickad</strong>, och ett mejl med en signeringslänk kommer till den privata adressen. Kommer mejlet inte fram är adressen felstavad, eller så hamnar det i skräpposten — kontrollera där först.</p>
     </div>
 </section>
 
 <section class="s_text_block pt32 pb40">
     <div class="container s_allow_columns">
-        <h2>Test 2 — signeringen kräver BankID</h2>
+        <h2>Test 2 — utkastet syns inte för mottagaren</h2>
         <ol>
-            <li>Öppna dokumentet via länken.</li>
-            <li>Försök signera <em>utan</em> att legitimera dig — avbryt BankID när det öppnas.</li>
-            <li>Kontrollera att dokumentet <strong>inte</strong> blev signerat.</li>
-            <li>Signera nu på riktigt med BankID.</li>
+            <li>Skapa en ny förfrågan med namnet <em>Test utkast</em> och ladda upp samma PDF.</li>
+            <li>Lägg till dig själv som mottagare.</li>
+            <li>Spara — men skicka <strong>inte</strong>.</li>
+            <li>Logga in som mottagaren (eller öppna listan över dokument som väntar på din underskrift).</li>
         </ol>
-        <p><strong>Förväntat resultat:</strong> avbruten legitimering ger ingen signering, och den riktiga ger en. Det bevisar att identitetskontrollen faktiskt är ett krav — inte en dekoration man kan klicka förbi.</p>
+        <p><strong>Förväntat resultat:</strong> utkastet syns inte i mottagarens lista och ingen länk har skickats. Ett utkast är bara synligt för den som skapade det.</p>
     </div>
 </section>
 
 <section class="s_text_block pt32 pb40">
     <div class="container s_allow_columns">
-        <h2>Test 3 — statusen följer med</h2>
+        <h2>Test 3 — signeringen kräver rätt person</h2>
+        <ol>
+            <li>Öppna signeringslänken från Test 1 i en webbläsare där du <em>inte</em> är inloggad som mottagaren.</li>
+            <li>Försök signera.</li>
+            <li>Logga sedan in som mottagaren och signera på riktigt.</li>
+        </ol>
+        <p><strong>Förväntat resultat:</strong> fel person kan inte signera, rätt person kan. Det bevisar att kopplingen mellan länk och mottagare faktiskt håller — inte bara att knappen finns.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Test 4 — statusen och tiden följer med</h2>
         <ol>
             <li>Gå tillbaka till signeringslistan.</li>
             <li>Kontrollera att förfrågan nu står som <strong>Signerad</strong>.</li>
-            <li>Öppna den och kontrollera att ditt namn och en tidsstämpel syns.</li>
+            <li>Öppna den och kontrollera att ditt namn och ett datum med klockslag syns på mottagarraden.</li>
         </ol>
         <p><strong>Förväntat resultat:</strong> status, namn och tid finns. Att bara statusen ändrats räcker inte — beviset ska gå att läsa ut.</p>
     </div>
@@ -82,9 +96,9 @@
 
 <section class="s_text_block pt32 pb40">
     <div class="container s_allow_columns">
-        <h2>Test 4 — det signerade dokumentet går att ladda ner</h2>
+        <h2>Test 5 — det signerade dokumentet går att ladda ner</h2>
         <ol>
-            <li>Ladda ner den signerade PDF:en.</li>
+            <li>Ladda ner den signerade PDF:en från förfrågan.</li>
             <li>Öppna den och kontrollera att underskriften syns i dokumentet.</li>
             <li>Kontrollera att det finns ett bevisavsnitt med namn och tid.</li>
         </ol>
@@ -94,9 +108,22 @@
 
 <section class="s_text_block pt32 pb40">
     <div class="container s_allow_columns">
-        <h2>Test 5 — arkiveringen hittas</h2>
+        <h2>Test 6 — avbrottet stänger länken</h2>
         <ol>
-            <li>Lägg den signerade PDF:en i dokumenthanteringen, i en mapp du kommer ihåg.</li>
+            <li>Skapa en förfrågan, lägg till dig själv som mottagare och skicka den.</li>
+            <li>Öppna förfrågan och tryck <strong>Cancel</strong>.</li>
+            <li>Kontrollera att status är <strong>Avbruten</strong>.</li>
+            <li>Försök öppna signeringslänken igen.</li>
+        </ol>
+        <p><strong>Förväntat resultat:</strong> status är <strong>Avbruten</strong> och länken går inte längre att signera med. Historiken finns kvar — förfrågan är inte borta, bara stängd.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Test 7 — arkiveringen hittas</h2>
+        <ol>
+            <li>Lägg den signerade PDF:en från Test 5 i dokumenthanteringen, i en mapp du kommer ihåg.</li>
             <li>Koppla den till ett ärende eller avtal om du har ett att testa med.</li>
             <li>Sök upp dokumentet på nytt — som om du vore någon annan som letar.</li>
         </ol>
@@ -109,11 +136,12 @@
         <h2>Om det inte fungerar</h2>
         <ol>
             <li><strong>Mejlet kommer inte fram.</strong> Kontrollera stavningen på adressen och titta i skräpposten. Signeringsmejl fastnar ofta där första gången.</li>
-            <li><strong>BankID öppnas inte.</strong> Kontrollera att BankID är aktiverat på enheten, och att du valt rätt BankID — mobilt eller kort.</li>
-            <li><strong>Dokumentet går inte att signera.</strong> Kontrollera att det är i PDF-format och att du är inloggad som rätt mottagare.</li>
+            <li><strong>Länken går inte att öppna.</strong> Länken är personlig och engångs — är du inloggad som fel användare, eller har länken redan använts, tar den stopp. Skicka en ny förfrågan.</li>
+            <li><strong>Dokumentet går inte att signera.</strong> Kontrollera att det är i PDF-format, att du är inloggad som rätt mottagare, och att ett signaturfält är utplacerat.</li>
             <li><strong>Underskriften syns inte i PDF:en.</strong> Du har förmodligen laddat ner originalfilen i stället för den signerade versionen.</li>
+            <li><strong>Appen syns inte i menyn.</strong> Din användare saknar behörighet till signering — hör av dig till IT.</li>
         </ol>
-        <p class="small text-muted">Fungerar det fortfarande inte: hör av dig till IT och beskriv vilket av de fem testerna som stannade. Det räcker som felbeskrivning.</p>
+        <p class="small text-muted">Fungerar det fortfarande inte: hör av dig till IT och beskriv vilket av de sju testerna som stannade. Det räcker som felbeskrivning.</p>
     </div>
 </section>
 
@@ -122,13 +150,13 @@
         <div class="row">
             <div class="col-lg-9">
                 <h3>Städa efter dig</h3>
-                <p class="lead">Ta bort testdokumentet ur dokumenthanteringen och skriv i ärendet att flödet är testat. Nästa person slipper undra.</p>
+                <p class="lead">Avbryt testförfrågningarna, ta bort testdokumentet ur dokumenthanteringen, och skriv i ärendet att flödet är testat. Nästa person slipper undra.</p>
             </div>
         </div>
     </div>
 </section>
         </field>
-        <field name="description">Fem tester: förfrågan når fram, signeringen kräver BankID, statusen följer med, det signerade går att ladda ner och arkiveringen går att hitta. Med förväntat resultat och felsökning.</field>
+        <field name="description">Sju tester som tillsammans visar att signeringskedjan håller: skicka, utkast, behörighet, status, nedladdning, avbrott och arkivering — samt felsökning.</field>
     </record>
 
     <record id="slide_sign_s5_02" model="slide.slide">
@@ -143,115 +171,88 @@
         <field name="quiz_second_attempt_reward">75</field>
         <field name="quiz_third_attempt_reward">50</field>
         <field name="quiz_fourth_attempt_reward">25</field>
-        <field name="description">Kontrollera att du vet hur du verifierar signeringsflödet själv.</field>
+        <field name="description">Kontrollera att du vet vad testerna ska bevisa och hur du felsöker.</field>
     </record>
 
     <record id="slide_sign_s5_02_q1" model="slide.question">
-        <field name="question">Hur bevisar du att identitetskontrollen faktiskt är ett krav?</field>
+        <field name="question">Varför testar vi att ett utkast inte syns för mottagaren?</field>
         <field name="sequence">1</field>
         <field name="slide_id" ref="slide_sign_s5_02"/>
     </record>
     <record id="slide_sign_s5_02_q1_a1" model="slide.answer">
-        <field name="text_value">Genom att avbryta BankID och kontrollera att dokumentet inte blev signerat</field>
+        <field name="text_value">För att ett utkast inte får kunna signeras innan det skickats</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Att bara signera på riktigt visar inte att det går att klicka förbi.</field>
+        <field name="comment">Rätt. Annars kan ett ofärdigt dokument bli bindande.</field>
         <field name="question_id" ref="slide_sign_s5_02_q1"/>
     </record>
     <record id="slide_sign_s5_02_q1_a2" model="slide.answer">
-        <field name="text_value">Genom att signera på riktigt och se att det fungerar</field>
+        <field name="text_value">För att spara lagringsplats</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Det visar att det fungerar när man gör rätt — inte att det stoppar när man inte gör det.</field>
+        <field name="comment">Lagringsplats har inget med saken att göra.</field>
         <field name="question_id" ref="slide_sign_s5_02_q1"/>
     </record>
     <record id="slide_sign_s5_02_q1_a3" model="slide.answer">
-        <field name="text_value">Genom att läsa i dokumentationen att BankID krävs</field>
+        <field name="text_value">För att testa e-postservern</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Dokumentationen säger vad som ska hända — inte vad som händer hos er.</field>
+        <field name="comment">E-postservern testas i Test 1.</field>
         <field name="question_id" ref="slide_sign_s5_02_q1"/>
     </record>
 
     <record id="slide_sign_s5_02_q2" model="slide.question">
-        <field name="question">Varför räcker det inte att statusen ändrats till "Signerad"?</field>
+        <field name="question">Signeringslänken går inte att öppna. Vad är vanligaste orsaken?</field>
         <field name="sequence">2</field>
         <field name="slide_id" ref="slide_sign_s5_02"/>
     </record>
     <record id="slide_sign_s5_02_q2_a1" model="slide.answer">
-        <field name="text_value">Beviset ska gå att läsa ut — namn och tid måste synas</field>
+        <field name="text_value">Du är inloggad som fel användare, eller länken är redan använd</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. En status utan bevis är bara en etikett.</field>
+        <field name="comment">Rätt. Länken är personlig och engångs.</field>
         <field name="question_id" ref="slide_sign_s5_02_q2"/>
     </record>
     <record id="slide_sign_s5_02_q2_a2" model="slide.answer">
-        <field name="text_value">Statusen kan vara felaktig</field>
+        <field name="text_value">Dokumentet är för stort</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Möjligt, men poängen är att beviset måste kontrolleras oavsett.</field>
+        <field name="comment">Storleken påverkar inte länken.</field>
         <field name="question_id" ref="slide_sign_s5_02_q2"/>
     </record>
     <record id="slide_sign_s5_02_q2_a3" model="slide.answer">
-        <field name="text_value">Det räcker — statusen är beviset</field>
+        <field name="text_value">Förfrågan saknar namn</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Nej. Beviset ligger i dokumentet, inte i statusfältet.</field>
+        <field name="comment">Namnet påverkar inte länken.</field>
         <field name="question_id" ref="slide_sign_s5_02_q2"/>
     </record>
 
     <record id="slide_sign_s5_02_q3" model="slide.question">
-        <field name="question">Vilken fil ska du arkivera?</field>
+        <field name="question">Vad ska du göra med testförfrågningarna efteråt?</field>
         <field name="sequence">3</field>
         <field name="slide_id" ref="slide_sign_s5_02"/>
     </record>
     <record id="slide_sign_s5_02_q3_a1" model="slide.answer">
-        <field name="text_value">Den signerade PDF:en — den innehåller underskrift och bevis</field>
+        <field name="text_value">Avbryta dem och ta bort testdokumentet ur dokumenthanteringen</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Originalet utan underskrift bevisar ingenting.</field>
+        <field name="comment">Rätt. Städa — nästa person slipper undra vad som är på riktigt.</field>
         <field name="question_id" ref="slide_sign_s5_02_q3"/>
     </record>
     <record id="slide_sign_s5_02_q3_a2" model="slide.answer">
-        <field name="text_value">Originalet du laddade upp</field>
+        <field name="text_value">Radera dem helt</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Det saknar underskrift och bevis.</field>
+        <field name="comment">Avbryt i stället — historiken ska finnas kvar.</field>
         <field name="question_id" ref="slide_sign_s5_02_q3"/>
     </record>
     <record id="slide_sign_s5_02_q3_a3" model="slide.answer">
-        <field name="text_value">En skärmbild av statusen</field>
+        <field name="text_value">Låta dem ligga — de stör ingen</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">En bild är inte ett bevis — den kan ändras.</field>
+        <field name="comment">De syns i listan och skapar osäkerhet om vad som är på riktigt.</field>
         <field name="question_id" ref="slide_sign_s5_02_q3"/>
-    </record>
-
-    <record id="slide_sign_s5_02_q4" model="slide.question">
-        <field name="question">Hur kontrollerar du att arkiveringen ligger rätt?</field>
-        <field name="sequence">4</field>
-        <field name="slide_id" ref="slide_sign_s5_02"/>
-    </record>
-    <record id="slide_sign_s5_02_q4_a1" model="slide.answer">
-        <field name="text_value">Söker upp dokumentet som om du vore någon annan som letar</field>
-        <field name="sequence">1</field>
-        <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Hittar du det bara via signeringslistan ligger det på fel ställe.</field>
-        <field name="question_id" ref="slide_sign_s5_02_q4"/>
-    </record>
-    <record id="slide_sign_s5_02_q4_a2" model="slide.answer">
-        <field name="text_value">Kontrollerar att filen finns i nedladdningsmappen</field>
-        <field name="sequence">2</field>
-        <field name="is_correct" eval="False"/>
-        <field name="comment">Då finns den bara på din dator.</field>
-        <field name="question_id" ref="slide_sign_s5_02_q4"/>
-    </record>
-    <record id="slide_sign_s5_02_q4_a3" model="slide.answer">
-        <field name="text_value">Frågar kollegan om de minns var den lades</field>
-        <field name="sequence">3</field>
-        <field name="is_correct" eval="False"/>
-        <field name="comment">Om två år finns ingen kollega att fråga.</field>
-        <field name="question_id" ref="slide_sign_s5_02_q4"/>
     </record>
 
     </data>

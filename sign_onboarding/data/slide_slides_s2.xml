@@ -25,7 +25,7 @@
 <section class="s_cover o_cc o_cc3 pt160 pb160">
     <div class="container">
         <h1 class="display-3-fs" style="text-align: center;">Första gången — signering</h1>
-        <p class="lead" style="text-align: center;">Att skicka är enkelt. Att signera kräver BankID — och det är själva poängen.</p>
+        <p class="lead" style="text-align: center;">Att skicka är enkelt. Att signera kräver att du legitimerar dig — och det är själva poängen.</p>
     </div>
 </section>
 
@@ -33,19 +33,20 @@
     <div class="container s_allow_columns">
         <h2>Vad du behöver</h2>
         <ul>
-            <li><strong>BankID</strong> i mobilen eller på kort, om du själv ska skriva under. Det är så din identitet styrks.</li>
             <li><strong>Dokumentet</strong> i PDF-format.</li>
-            <li><strong>Mottagarnas e-postadresser</strong> — det är dit signeringslänken skickas.</li>
+            <li><strong>Mottagarens e-postadress</strong> — det är dit signeringslänken skickas.</li>
+            <li><strong>Din egen inloggning</strong> i arbetsytan, om du själv ska skriva under.</li>
         </ul>
-        <p class="small text-muted">Ska du bara skicka dokument för signering behöver du inget BankID själv. Det behövs bara för den som skriver under.</p>
+        <p class="small text-muted">Ska du bara skicka dokument för signering behöver du inget särskilt själv. Det är mottagaren som legitimerar sig när den signerar.</p>
     </div>
 </section>
 
 <section class="s_text_block pt32 pb40">
     <div class="container s_allow_columns">
         <h2>Var du hittar det</h2>
-        <p>Signering ligger i appmenyn. Där ser du tre saker: dokument du skickat, dokument som väntar på din underskrift, och de som är klara.</p>
+        <p>Signering är en egen app i appmenyn. Där ser du tre saker: dokument du skickat, dokument som väntar på din underskrift, och de som är klara.</p>
         <p>Väntar något på dig syns det direkt — du behöver inte leta i inkorgen efter en signeringsförfrågan.</p>
+        <p class="small text-muted">Ser du inte appen i menyn? Då saknar din användare behörighet till signering. Hör av dig till IT.</p>
     </div>
 </section>
 
@@ -55,11 +56,11 @@
         <ol>
             <li>Öppna dokumentet som väntar på dig.</li>
             <li>Läs igenom det. Läs faktiskt — när du signerat är det bindande.</li>
+            <li>Fyll i de fält som efterfrågas och placera din signatur.</li>
             <li>Tryck på <strong>Signera</strong>.</li>
-            <li>Öppna BankID i mobilen och legitimera dig med din säkerhetskod.</li>
             <li>Klart. Dokumentet markeras som signerat och du får en bekräftelse.</li>
         </ol>
-        <p>Tar det stopp vid BankID beror det nästan alltid på att BankID inte är aktiverat på enheten, eller att du valt fel BankID (mobilt kontra kort).</p>
+        <p>Tar det stopp vid signeringen beror det nästan alltid på att du öppnat dokumentet som fel person, eller att länken redan använts.</p>
     </div>
 </section>
 
@@ -82,7 +83,7 @@
     </div>
 </section>
         </field>
-        <field name="description">Vad du behöver för att signera, var du hittar signering, hur första signeringen går till med BankID — och varför den inte går att ångra.</field>
+        <field name="description">Vad du behöver för att skicka och signera, var du hittar signering, hur första signeringen går till — och varför den inte går att ångra.</field>
     </record>
 
     <record id="slide_sign_s2_02" model="slide.slide">
@@ -106,17 +107,17 @@
         <field name="slide_id" ref="slide_sign_s2_02"/>
     </record>
     <record id="slide_sign_s2_02_q1_a1" model="slide.answer">
-        <field name="text_value">Dokumentet i PDF och mottagarnas e-postadresser</field>
+        <field name="text_value">Dokumentet i PDF och mottagarens e-postadress</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Eget BankID behövs bara om du själv ska skriva under.</field>
+        <field name="comment">Rätt. Något särskilt för egen del behövs bara om du själv ska skriva under.</field>
         <field name="question_id" ref="slide_sign_s2_02_q1"/>
     </record>
     <record id="slide_sign_s2_02_q1_a2" model="slide.answer">
-        <field name="text_value">Eget BankID</field>
+        <field name="text_value">Ett särskilt signeringscertifikat</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Behövs bara för den som signerar.</field>
+        <field name="comment">Nej — det behövs inte för att skicka.</field>
         <field name="question_id" ref="slide_sign_s2_02_q1"/>
     </record>
     <record id="slide_sign_s2_02_q1_a3" model="slide.answer">
@@ -182,29 +183,29 @@
     </record>
 
     <record id="slide_sign_s2_02_q4" model="slide.question">
-        <field name="question">Signeringen stannar vid BankID. Vad är vanligaste orsaken?</field>
+        <field name="question">Signeringen stannar. Vad är vanligaste orsaken?</field>
         <field name="sequence">4</field>
         <field name="slide_id" ref="slide_sign_s2_02"/>
     </record>
     <record id="slide_sign_s2_02_q4_a1" model="slide.answer">
-        <field name="text_value">BankID är inte aktiverat på enheten, eller fel BankID valt</field>
+        <field name="text_value">Dokumentet är öppnat som fel person, eller länken är redan använd</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Mobilt kontra kort är en vanlig sammanblandning.</field>
+        <field name="comment">Rätt. Signeringslänken är personlig och engångs.</field>
         <field name="question_id" ref="slide_sign_s2_02_q4"/>
     </record>
     <record id="slide_sign_s2_02_q4_a2" model="slide.answer">
         <field name="text_value">Dokumentet är för stort</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Storleken påverkar inte BankID-steget.</field>
+        <field name="comment">Storleken påverkar inte signeringssteget.</field>
         <field name="question_id" ref="slide_sign_s2_02_q4"/>
     </record>
     <record id="slide_sign_s2_02_q4_a3" model="slide.answer">
         <field name="text_value">Systemet är trasigt</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Kontrollera BankID-aktiveringen först.</field>
+        <field name="comment">Kontrollera vem du är inloggad som först.</field>
         <field name="question_id" ref="slide_sign_s2_02_q4"/>
     </record>
 

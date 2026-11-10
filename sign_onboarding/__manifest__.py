@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Signering i Vertel',
-    'version': '18.0.2.0.0',
-    'summary': 'Onboardingskurs: elektronisk signering med BankID',
+    'version': '18.0.2.1.0',
+    'summary': 'Onboardingskurs: elektronisk signering',
     'description': """
 Lär dig skicka dokument för signering, följa status och arkivera det signerade.
 
@@ -13,6 +13,10 @@ Kursen har fem sektioner:
   4. Signera och arkivera
   5. Manuellt test — verifiera att det fungerar
 
+Innehållet beskriver signeringsflödet i sign_oca, som är den
+signeringsmodul Vertel har i drift. Någon BankID-integration finns
+inte installerad — kursen beskriver därför inte BankID.
+
 Allt innehåll ligger i data/ (inte demo/) och skapas därmed även i
 produktionsdatabaser som körs med --without-demo=all.
 """,
@@ -20,7 +24,7 @@ produktionsdatabaser som körs med --without-demo=all.
     'website': 'https://vertel.se',
     'license': 'LGPL-3',
     'category': 'Website/eLearning',
-    'depends': ['website_slides'],
+    'depends': ['website_slides', 'sign_oca'],
     'data': [
         'views/slide_channel_data.xml',
         'data/slide_slides_s1.xml',

@@ -34,11 +34,11 @@
         <h2>Vad som gör en signering värd något</h2>
         <p>Att skriva sitt namn i ett dokument bevisar i sig ingenting — vem som helst kan skriva vilket namn som helst. Det som ger en underskrift värde är tre saker:</p>
         <ol>
-            <li><strong>Identiteten</strong> — det är styrkt att det är du som skrev under, inte någon som känner till ditt namn.</li>
-            <li><strong>Tidpunkten</strong> — det finns ett tidsstämpel som visar när det hände.</li>
+            <li><strong>Identiteten</strong> — det är styrkt vem som skrev under, inte bara vilket namn som stod där.</li>
+            <li><strong>Tidpunkten</strong> — det finns en tidsangivelse som visar när det hände.</li>
             <li><strong>Oföränderligheten</strong> — det går att upptäcka om dokumentet ändrats efter signeringen.</li>
         </ol>
-        <p>Signeringen i arbetsytan ordnar alla tre. Du laddar upp dokumentet, väljer vilka som ska skriva under, och systemet sköter identitetskontroll, tidsstämpling och spårning.</p>
+        <p>Signeringen i arbetsytan ordnar alla tre. Du laddar upp dokumentet, placerar ut signaturfälten, väljer vilka som ska skriva under — och systemet håller reda på ordningen, tiden och ett kontrollvärde per underskrift.</p>
     </div>
 </section>
 
@@ -72,7 +72,7 @@
 <section class="s_text_block pt32 pb64">
     <div class="container s_allow_columns">
         <h2>Det här kursen täcker</h2>
-        <p>Skicka ett dokument för signering, följa status, signera med BankID, och arkivera det signerade så att det går att hitta igen.</p>
+        <p>Skapa en signeringsförfrågan, placera ut signaturfälten, skicka den till rätt person, följa status, signera själv, och arkivera det signerade dokumentet så att det går att hitta igen.</p>
     </div>
 </section>
 
@@ -87,7 +87,7 @@
     </div>
 </section>
         </field>
-        <field name="description">Vad som gör en signering värd något — identitet, tidpunkt och oföränderlighet — och när du ska använda signering i stället för utskrift och skanning.</field>
+        <field name="description">Vad som gör en signering värd något, varför papper och skanner inte är ett alternativ, när du ska använda signering — och vad kursen täcker.</field>
     </record>
 
     <record id="slide_sign_s1_02" model="slide.slide">
@@ -102,33 +102,33 @@
         <field name="quiz_second_attempt_reward">75</field>
         <field name="quiz_third_attempt_reward">50</field>
         <field name="quiz_fourth_attempt_reward">25</field>
-        <field name="description">Kontrollera att du vet vad som ger en signering värde.</field>
+        <field name="description">Kontrollera att du vet vad som gör en signering trovärdig.</field>
     </record>
 
     <record id="slide_sign_s1_02_q1" model="slide.question">
-        <field name="question">Vad ger en underskrift sitt bevisvärde?</field>
+        <field name="question">Vad är det som gör en underskrift värd något?</field>
         <field name="sequence">1</field>
         <field name="slide_id" ref="slide_sign_s1_02"/>
     </record>
     <record id="slide_sign_s1_02_q1_a1" model="slide.answer">
-        <field name="text_value">Styrkt identitet, tidsstämpel och att dokumentet inte kan ändras obemärkt</field>
+        <field name="text_value">Att identiteten är styrkt, att tiden är dokumenterad och att ändringar går att upptäcka</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Alla tre behövs — ett namn i sig bevisar ingenting.</field>
+        <field name="comment">Rätt. Alla tre behövs — saknas en av dem faller beviset.</field>
         <field name="question_id" ref="slide_sign_s1_02_q1"/>
     </record>
     <record id="slide_sign_s1_02_q1_a2" model="slide.answer">
-        <field name="text_value">Att namnteckningen ser ut som personens vanliga</field>
+        <field name="text_value">Att namnteckningen är snygg och lik originalet</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">En bild av en namnteckning kan vem som helst kopiera.</field>
+        <field name="comment">Utseendet bevisar ingenting — det är identiteten som räknas.</field>
         <field name="question_id" ref="slide_sign_s1_02_q1"/>
     </record>
     <record id="slide_sign_s1_02_q1_a3" model="slide.answer">
-        <field name="text_value">Att dokumentet är i PDF-format</field>
+        <field name="text_value">Att dokumentet är utskrivet på papper</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Formatet säger inget om vem som skrev under.</field>
+        <field name="comment">Papper är ingen garanti — en inskannad bild kan flyttas mellan dokument.</field>
         <field name="question_id" ref="slide_sign_s1_02_q1"/>
     </record>
 
@@ -141,76 +141,49 @@
         <field name="text_value">Den är en bild som kan klippas in i ett annat dokument utan spår</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. En digital signering är knuten till just det dokumentet.</field>
+        <field name="comment">Rätt. Utan kontrollvärde finns ingen koppling mellan underskrift och innehåll.</field>
         <field name="question_id" ref="slide_sign_s1_02_q2"/>
     </record>
     <record id="slide_sign_s1_02_q2_a2" model="slide.answer">
-        <field name="text_value">Den tar längre tid att skicka</field>
+        <field name="text_value">Den går långsammare att skicka</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Det är en praktisk olägenhet, inte ett bevisproblem.</field>
+        <field name="comment">Hastigheten är en bieffekt — problemet är bevisvärdet.</field>
         <field name="question_id" ref="slide_sign_s1_02_q2"/>
     </record>
     <record id="slide_sign_s1_02_q2_a3" model="slide.answer">
-        <field name="text_value">Den går inte att arkivera</field>
+        <field name="text_value">Den tar mer lagringsplats</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Den går att arkivera — men beviset följer inte med.</field>
+        <field name="comment">Lagringsplats har inget med bevisvärdet att göra.</field>
         <field name="question_id" ref="slide_sign_s1_02_q2"/>
     </record>
 
     <record id="slide_sign_s1_02_q3" model="slide.question">
-        <field name="question">När räcker det med ett vanligt godkännande i systemet i stället för signering?</field>
+        <field name="question">När är signering rätt verktyg?</field>
         <field name="sequence">3</field>
         <field name="slide_id" ref="slide_sign_s1_02"/>
     </record>
     <record id="slide_sign_s1_02_q3_a1" model="slide.answer">
-        <field name="text_value">När något bara ska läsas och kvitteras</field>
+        <field name="text_value">När det behövs ett bevis med namn och tid</field>
         <field name="sequence">1</field>
         <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Signering är för det som behöver ett bevis med namn och tid.</field>
+        <field name="comment">Rätt. Ska något bara läsas räcker ett vanligt godkännande.</field>
         <field name="question_id" ref="slide_sign_s1_02_q3"/>
     </record>
     <record id="slide_sign_s1_02_q3_a2" model="slide.answer">
-        <field name="text_value">När det gäller avtal med kund</field>
+        <field name="text_value">Till all intern kommunikation</field>
         <field name="sequence">2</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Där är signering motiverad — det ska gå att bevisa.</field>
+        <field name="comment">Onödigt tungt — signering är för det som ska styrkas.</field>
         <field name="question_id" ref="slide_sign_s1_02_q3"/>
     </record>
     <record id="slide_sign_s1_02_q3_a3" model="slide.answer">
-        <field name="text_value">När dokumentet är kort</field>
+        <field name="text_value">Bara när kunden kräver det</field>
         <field name="sequence">3</field>
         <field name="is_correct" eval="False"/>
-        <field name="comment">Längden avgör inte — innehållet gör det.</field>
+        <field name="comment">Det är ditt eget behov av bevis som avgör, inte kundens krav.</field>
         <field name="question_id" ref="slide_sign_s1_02_q3"/>
-    </record>
-
-    <record id="slide_sign_s1_02_q4" model="slide.question">
-        <field name="question">Vad är den praktiska vinsten med digital signering framför papper?</field>
-        <field name="sequence">4</field>
-        <field name="slide_id" ref="slide_sign_s1_02"/>
-    </record>
-    <record id="slide_sign_s1_02_q4_a1" model="slide.answer">
-        <field name="text_value">Beviset ligger kvar i systemet, kopplat till dokumentet och ärendet</field>
-        <field name="sequence">1</field>
-        <field name="is_correct" eval="True"/>
-        <field name="comment">Rätt. Inget papper att leta fram när det behövs.</field>
-        <field name="question_id" ref="slide_sign_s1_02_q4"/>
-    </record>
-    <record id="slide_sign_s1_02_q4_a2" model="slide.answer">
-        <field name="text_value">Att det inte behövs någon skrivare</field>
-        <field name="sequence">2</field>
-        <field name="is_correct" eval="False"/>
-        <field name="comment">Skarpt, men det är spårbarheten som är vinsten.</field>
-        <field name="question_id" ref="slide_sign_s1_02_q4"/>
-    </record>
-    <record id="slide_sign_s1_02_q4_a3" model="slide.answer">
-        <field name="text_value">Att dokumentet blir kortare</field>
-        <field name="sequence">3</field>
-        <field name="is_correct" eval="False"/>
-        <field name="comment">Innehållet ändras inte av signeringssättet.</field>
-        <field name="question_id" ref="slide_sign_s1_02_q4"/>
     </record>
 
     </data>
