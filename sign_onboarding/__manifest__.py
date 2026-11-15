@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Signering i Vertel',
-    'version': '18.0.1.0.0',
+    'version': '1.0.0',
     'summary': 'Onboardingskurs: elektronisk signering med BankID',
     'description': """
 Lär dig skicka dokument för signering, följa status och arkivera det signerade.
