@@ -20,7 +20,7 @@
         # 'views/sale_order_view.xml',
 
 
-        'security/ir.model.access.csv',
+        'security/ir.access.csv',
     ],
     # 'assets': { }
 

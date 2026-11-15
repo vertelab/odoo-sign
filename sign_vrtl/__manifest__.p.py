@@ -1,0 +1,31 @@
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+{
+    "name": "Sign: Sign Providers",
+    "summary": """
+        Sign Providers
+    """,
+    "version": "1.0.0",
+    "license": "AGPL-3",
+    "website": "https://vertel.se/apps/odoo-sign/sign_vrtl",
+    "depends": ['web', 'base', 'mail', 'sale'],
+    "data": [
+        'data/sign_provider_data.xml',
+
+        'views/menu.xml',
+
+        'views/sign_provider_views.xml',
+        'views/sign_definition_views.xml',
+        'views/sign_request_views.xml',
+        # 'views/sale_order_view.xml',
+
+
+        # #if VERSION >= "20.0"
+        'security/ir.access.csv',
+        # #else
+        'security/ir.model.access.csv',
+        # #endif
+    ],
+    # 'assets': { }
+
+}

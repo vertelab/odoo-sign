@@ -73,6 +73,7 @@ sign_vrtl/models/sign_mixin.py
 sign_vrtl/models/sign_provider.py
 sign_vrtl/models/sign_request.py
 sign_vrtl/models/sign_request_mixin.py
+sign_vrtl/security/ir.access.csv
 sign_vrtl/security/ir.model.access.csv
 sign_vrtl/static/description/index.html
 sign_vrtl/views/menu.xml
