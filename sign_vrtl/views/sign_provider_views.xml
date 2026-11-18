@@ -88,11 +88,6 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name" string="provider" filter_domain="[('name', 'ilike', self)]"/>
-                <group expand="0" string="Group By">
-                    <filter string="Provider" name="code" context="{'group_by': 'code'}"/>
-                    <filter string="State" name="state" context="{'group_by': 'state'}"/>
-                    <filter string="Company" name="company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
-                </group>
             </search>
         </field>
     </record>

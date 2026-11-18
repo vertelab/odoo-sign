@@ -41,7 +41,7 @@ class SignProviderMixin(models.AbstractModel):
     module_state = fields.Selection(string="Installation State", related='module_id.state')
 
     def base_url(self):
-        return self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        return self.env['ir.config_parameter'].sudo().get_str('web.base.url')
 
     def _build_request_headers(self):
         return {}
