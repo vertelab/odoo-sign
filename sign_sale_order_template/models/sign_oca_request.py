@@ -7,7 +7,8 @@ from io import BytesIO
 
 # PyPDF2's camelCase reader API (PdfFileReader/PdfFileWriter) was removed in
 # PyPDF2 3.0; the body below already uses the pages/merge_page API, so only
-# the import needs the new name. pypdf is what the pfile venvs ship.
+# the import needs the new name. pypdf serves every supported edition and is
+# what the pfile venvs ship -- PyPDF2 is not installed there.
 from pypdf import PdfReader as PdfFileReader, PdfWriter as PdfFileWriter
 from reportlab.graphics.shapes import Drawing, Line, Rect
 from reportlab.lib.colors import black, transparent

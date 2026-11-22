@@ -80,4 +80,4 @@ class SignProvider(models.Model):
 
     def get_base_url(self):
         """Get the base URL for this environment"""
-        return self.env['ir.config_parameter'].sudo().get_str('web.base.url')
+        return self.env['ir.config_parameter'].sudo().get_param('web.base.url')
