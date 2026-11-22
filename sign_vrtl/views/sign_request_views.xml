@@ -189,7 +189,6 @@
                     string="Archived"
                     domain="[('active', '=', False)]"
                 />
-                <group expand="0" string="Group By">
                     <filter
                         name="group_by_sign_definition_id"
                         string="Definition"
@@ -202,7 +201,6 @@
                         domain="[]"
                         context="{'group_by': 'state'}"
                     />
-                </group>
             </search>
         </field>
     </record>

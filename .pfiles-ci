@@ -1,0 +1,6 @@
+pfiles-ci: 1
+editions: 18.0 19.0 20.0
+# sign_oca (OCA/sign) is not cloned on this machine; sign_vrtl, sign_bankid,
+# sign_onboarding, sign_project_task, sign_report, sign_sale_order_template
+# and sign_criipto all depend on it (directly or through sign_report).
+deps: OCA/sign

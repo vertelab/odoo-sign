@@ -4,7 +4,9 @@ from base64 import b64decode, b64encode
 from urllib.parse import quote
 from odoo import models, fields, api
 from odoo.addons.sign_scrive.controllers.main import ScriveController
-from werkzeug.urls import url_encode, url_join, url_parse
+# werkzeug 3 dropped url_encode/url_join/url_parse from werkzeug.urls; Odoo
+# ships urljoin in odoo.tools.urls from 19.0 and uses it for the same job.
+from odoo.tools.urls import urljoin as url_join
 from odoo.exceptions import ValidationError
 
 
