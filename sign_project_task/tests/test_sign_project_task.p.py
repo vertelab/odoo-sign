@@ -13,10 +13,23 @@ class TestSignProjectTask(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.sign_template = cls.env["sign.oca.template"].create(
-            {"name": "Task signature", "model_id": cls.env.ref("project.model_project_task").id}
-        )
         cls.partner = cls.env["res.partner"].create({"name": "Task Customer"})
+        cls.role = cls.env["sign.oca.role"].create(
+            {
+                "name": "Customer",
+                "partner_selection_policy": "default",
+                "default_partner_id": cls.partner.id,
+            }
+        )
+        cls.sign_template = cls.env["sign.oca.template"].create(
+            {
+                "name": "Task signature",
+                "model_id": cls.env.ref("project.model_project_task").id,
+                "item_ids": [
+                    (0, 0, {"role_id": cls.role.id, "position_x": 0.1, "position_y": 0.1})
+                ],
+            }
+        )
         cls.project = cls.env["project.project"].create({"name": "Signing project"})
 
     def test_company_can_point_at_a_task_sign_template(self):
@@ -43,18 +56,22 @@ class TestSignProjectTask(TransactionCase):
         self.assertEqual(task.sign_request_count, 1)
 
     def test_task_with_partner_generates_a_request(self):
-        """Creating a task with a customer creates and sends a sign request."""
+        """Creating a task with a customer creates a request from the company template."""
         self.env.company.project_task_sign_oca_template_id = self.sign_template
         task = self.env["project.task"].create(
             {
                 "name": "Sign me too",
                 "project_id": self.project.id,
                 "partner_id": self.partner.id,
+                "company_id": self.env.company.id,
             }
         )
-        self.assertEqual(task.sign_request_count, 1)
-        self.assertEqual(task.sign_request_ids.record_ref, task)
-        self.assertEqual(task.sign_request_ids.state, "sent")
+        request = self.env["sign.oca.request"].search(
+            [("record_ref", "=", f"project.task,{task.id}")]
+        )
+        self.assertEqual(len(request), 1)
+        self.assertEqual(request.template_id, self.sign_template)
+        self.assertEqual(request.signer_ids.partner_id, self.partner)
 
     def test_task_without_template_generates_nothing(self):
         """Without a configured template a task with a customer stays unsigned."""
@@ -64,6 +81,7 @@ class TestSignProjectTask(TransactionCase):
                 "name": "No template",
                 "project_id": self.project.id,
                 "partner_id": self.partner.id,
+                "company_id": self.env.company.id,
             }
         )
         self.assertEqual(task.sign_request_count, 0)

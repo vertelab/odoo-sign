@@ -17,16 +17,18 @@ class TestSignProvider(TransactionCase):
         )
 
     def test_dispatch_finds_provider_method(self):
-        """prepare_signing_request calls prepare_<code>_request when it exists."""
-        provider = self.provider
+        """prepare_signing_request calls prepare_<code>_request when it exists.
 
-        def prepare_internal_request(sign_request):
-            return {"document_name": "test.pdf"}
-
-        self.patch(type(provider), "prepare_internal_request", prepare_internal_request)
+        sign_scrive implements prepare_scrive_request, so its provider is the
+        real proof of the dispatch -- no patching needed.
+        """
+        provider = self.env["sign.provider"].search([("code", "=", "scrive")], limit=1)
+        if not provider:
+            self.skipTest("sign_scrive is not installed in this database")
+        sign_request = self.env["vrtl.sign.request"].new({"name": "Avtal 1"})
         self.assertEqual(
-            provider.prepare_signing_request(self.env["vrtl.sign.request"]),
-            {"document_name": "test.pdf"},
+            provider.prepare_signing_request(sign_request),
+            {"document_name": "Avtal 1.pdf"},
         )
 
     def test_dispatch_without_provider_method_returns_empty(self):
@@ -50,8 +52,7 @@ class TestSignProvider(TransactionCase):
 
     def test_provider_declares_its_module(self):
         """module_state follows module_id, which is how the UI knows what to install."""
-        provider = self.env["sign.provider"].search(
-            [("module_id", "=", self.env.ref("base.module_sign_vrtl").id)], limit=1
-        )
-        self.assertTrue(provider)
-        self.assertEqual(provider.module_state, "installed")
+        module = self.env["ir.module.module"].search([("name", "=", "sign_vrtl")])
+        self.assertEqual(module.state, "installed")
+        self.provider.module_id = module
+        self.assertEqual(self.provider.module_state, "installed")

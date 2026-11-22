@@ -1,3 +1,4 @@
+from odoo.exceptions import UserError
 from odoo.tests import TransactionCase, tagged
 
 
@@ -25,8 +26,8 @@ class TestSignSaleOrderTemplate(TransactionCase):
         )
         self.assertEqual(quotation_template.sign_template_id, self.sign_template)
 
-    def test_order_takes_the_sign_template_from_its_quotation_template(self):
-        """An order created from a quotation template inherits its sign template."""
+    def test_order_reads_the_sign_template_through_its_quotation_template(self):
+        """The order reaches the sign template via sale_order_template_id, not a copied field."""
         quotation_template = self.env["sale.order.template"].create(
             {"name": "Standard", "sign_template_id": self.sign_template.id}
         )
@@ -36,7 +37,13 @@ class TestSignSaleOrderTemplate(TransactionCase):
                 "sale_order_template_id": quotation_template.id,
             }
         )
-        self.assertEqual(order.sign_template_id, self.sign_template)
+        self.assertEqual(order.sale_order_template_id.sign_template_id, self.sign_template)
+
+    def test_generating_a_request_requires_a_quotation_template(self):
+        """Without a quotation template there is no sign template to build from."""
+        order = self.env["sale.order"].create({"partner_id": self.partner.id})
+        with self.assertRaises(UserError):
+            order.action_generate_sign_request()
 
     def test_sign_request_field_is_computed_from_record_ref(self):
         """sign_request_id finds the request whose record_ref points at the order."""
