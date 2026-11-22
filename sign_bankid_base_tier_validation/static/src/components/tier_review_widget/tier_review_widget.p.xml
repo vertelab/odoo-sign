@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <!-- Override to add Actions column header -->
+    <t t-name="sign_bankid_base_tier_validation.Collapse" t-inherit="base_tier_validation.Collapse" t-inherit-mode="extension">
+        <xpath expr="//th[@name='th_comment']" position="after">
+            <th name="th_actions" class="text-center">Actions</th>
+        </xpath>
+
+        <!-- Add View Details button in each row -->
+        <xpath expr="//td[@name='td_comment']" position="after">
+            <td name="td_actions" class="text-center">
+                <button
+                    class="btn btn-sm btn-primary"
+                    t-on-click="(ev) => this.onViewDetails(ev, review)"
+                    type="button">
+                    View Details
+                </button>
+            </td>
+        </xpath>
+    </t>
+</templates>

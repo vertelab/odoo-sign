@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="sign_bankid.BankIDSignModal">
+        <Dialog size="'lg'" title="'Sign with BankID'" footer="false">
+            <div class="bankid-modal-content">
+                <!-- Content based on status -->
+                <div class="modal-body">
+                    <!-- Idle State -->
+                    <div t-if="state.status === 'idle'" class="text-center">
+                        <i class="fa fa-signature fa-3x text-primary mb-3"/>
+                        <p class="lead">Ready to sign with BankID</p>
+                        <button
+                            class="btn btn-primary btn-lg"
+                            t-on-click="startBankIDSigning">
+                            <i class="fa fa-play"/> Start BankID Signing
+                        </button>
+                    </div>
+
+                    <!-- Signing State -->
+                    <div t-if="state.status === 'signing'" class="signing-container">
+                        <p class="lead text-center mb-4" t-esc="state.message"/>
+
+                        <div class="row">
+                            <!-- QR Code Section - Left Side -->
+                            <div class="col-md-6">
+                                <div t-if="state.qrCode" class="qr-section">
+                                    <h6 class="text-center mb-3">
+                                        <i class="fa fa-qrcode me-2"/>
+                                        Scan with BankID app
+                                    </h6>
+                                    <div class="d-flex justify-content-center">
+                                        <div id="qrcode-container" class="qr-code-wrapper">
+                                            <!-- QR code will be generated here via JS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Auto-start Section - Right Side -->
+                            <div class="col-md-6">
+                                <div t-if="state.autoStartUrl" class="auto-start-section">
+                                    <h6 class="text-center mb-3">
+                                        <i class="fa fa-mobile me-2"/>
+                                        Open directly
+                                    </h6>
+                                    <div class="d-flex flex-column align-items-center">
+                                        <p class="text-muted text-center mb-3">
+                                            If you have BankID app installed:
+                                        </p>
+                                        <a t-att-href="state.autoStartUrl"
+                                           class="btn btn-primary btn-lg mb-3">
+                                            <i class="fa fa-mobile me-2"/>
+                                            Open BankID App
+                                        </a>
+                                        <small class="text-muted text-center">
+                                            This will launch the BankID app automatically
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status and Cancel Button -->
+                        <div class="text-center mt-4">
+                            <div class="status-indicator mb-3">
+                                <div class="pulse-dot"></div>
+                                <span class="text-muted ms-2">Waiting for signature...</span>
+                            </div>
+                            <button
+                                class="btn btn-outline-secondary"
+                                t-on-click="cancelSigning">
+                                <i class="fa fa-times"/> Cancel Signing
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Complete State -->
+                    <div t-if="state.status === 'complete'" class="text-center">
+                        <i class="fa fa-check-circle fa-3x text-success mb-3"/>
+                        <p class="lead text-success" t-esc="state.message"/>
+                        <p class="text-muted">This window will close automatically...</p>
+                    </div>
+
+                    <!-- Error State -->
+                    <div t-if="state.status === 'error'" class="text-center">
+                        <i class="fa fa-exclamation-triangle fa-3x text-danger mb-3"/>
+                        <p class="lead text-danger" t-esc="state.message"/>
+                        <div class="mt-4">
+                            <button
+                                class="btn btn-primary"
+                                t-on-click="() => this.state.status = 'idle'">
+                                <i class="fa fa-retry"/> Try Again
+                            </button>
+                            <button
+                                class="btn btn-secondary ms-2"
+                                t-on-click="props.close">
+                                <i class="fa fa-times"/> Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+</templates>

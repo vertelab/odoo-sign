@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+            <xpath expr='//t[@t-call="web.external_layout"]/div[hasclass("page")]/div[last()]' position="after">
+                <div class="oe_structure last-page">
+                    <div class="row justify-content-between mt-8">
+                        <t t-foreach="doc.sign_request_id.signer_ids" t-as="signer">
+                            <div class="col-4" t-if="signer.signature">
+                                <div class="text-center">
+                                    <strong>Signature</strong>
+                                </div>
+                                <img t-att-src="image_data_uri(signer.signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                                <div class="text-center">
+                                    <span t-field="signer.partner_id.name">Oscar Morgan</span>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </xpath>
+
+<!--            <xpath expr='//t[@t-call="web.external_layout"]/div[hasclass("page")]/div[@t-if="not doc.signature"]' position="replace">-->
+<!--                <div t-if="not doc.signature or not doc.sign_request_id" class="oe_structure"></div>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr='//t[@t-call="web.external_layout"]/div[hasclass("page")]/div[@t-else=""]' position="replace">-->
+<!--                <div t-else="" class="mt-4 ml60 mr64 last-page" name="signature">-->
+
+<!--                    <div class="row mb-4" id="informations">-->
+<!--                        <t t-foreach="doc.sign_request_id.signer_ids" t-as="signer">-->
+<!--                            <div class="offset-8">-->
+<!--                                <strong>Signature</strong>-->
+<!--                            </div>-->
+<!--                            <div class="offset-8">-->
+<!--                                <img t-att-src="image_data_uri(signer.signature)" style="max-height: 4cm; max-width: 8cm;"/>-->
+<!--                            </div>-->
+<!--                            <div class="offset-8 text-center">-->
+<!--                                <span t-field="signer.partner_id.name">Oscar Morgan</span>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </div>-->
+
+<!--                    <div class="row">-->
+<!--                        <t t-foreach="doc.sign_request_id.signer_ids" t-as="signer">-->
+<!--                            <div class="offset-8">-->
+<!--                                <strong>Signature</strong>-->
+<!--                            </div>-->
+<!--                            <div class="offset-8">-->
+<!--                                <img t-att-src="image_data_uri(signer.signature)" style="max-height: 4cm; max-width: 8cm;"/>-->
+<!--                            </div>-->
+<!--                            <div class="offset-8 text-center">-->
+<!--                                <span t-field="signer.partner_id.name">Oscar Morgan</span>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </xpath>-->
+
+
+        </template>
+    </data>
+</odoo>

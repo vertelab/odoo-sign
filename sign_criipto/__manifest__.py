@@ -5,7 +5,7 @@
     "summary": """
         Sign with Criipto
     """,
-    "version": "18.0.1.0.0",
+    "version": "1.0.0",
     "license": "AGPL-3",
     "website": "https://vertel.se/apps/odoo-sign/sign_criipto",
     "depends": ['base', 'sale', 'sign_sale_order_template'],

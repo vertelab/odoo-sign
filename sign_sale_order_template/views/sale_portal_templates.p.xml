@@ -1,0 +1,62 @@
+<odoo>
+    <template id="sale_order_portal_content" inherit_id="sale.sale_order_portal_content">
+        <xpath expr="//div[@id='content']/section[@t-if='sale_order.signature']/div[@name='signature']/div[1]" position="before">
+            <div t-attf-class="#{'col-3' if report_type != 'html' else 'col-sm-7 col-md-4'} text-center">
+                <h5>Signature</h5>
+                <img t-att-src="image_data_uri(sale_order.signature)" style="max-height: 6rem; max-width: 100%;"/>
+                <p t-field="sale_order.signed_by"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='content']/section[@t-if='sale_order.signature']" position="replace">
+<!--            <section t-if="sale_order.signature or sale_order.sign_request_id" id="signature" name="Signature">-->
+<!--                <div class="row mt-4" name="signature">-->
+<!--                    <t t-foreach="sale_order.sign_request_id.signer_ids" t-as="signer" t-key="signer.id">-->
+<!--                        <div t-attf-class="#{'col-3' if report_type != 'html' else 'col-sm-7 col-md-4'} ms-auto text-center" t-if="signer.signature">-->
+<!--                            <h5>Signature</h5>-->
+<!--                            <img t-att-src="image_data_uri(signer.signature)" style="max-height: 6rem; max-width: 100%;"/>-->
+<!--                            <p t-field="signer.partner_id.name"/>-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                </div>-->
+<!--            </section>-->
+
+            <section t-if="sale_order.signature or sale_order.sign_request_id" id="signature" name="Signature">
+                <div class="row mt-4" name="signature">
+                    <t t-set="main_signer" t-value="None"/>
+                    <t t-set="other_signer" t-value="None"/>
+
+                    <!-- Identify the main and other signer -->
+                    <t t-foreach="sale_order.sign_request_id.signer_ids" t-as="signer" t-key="signer.id">
+                        <t t-if="signer.partner_id.id == sale_order.partner_id.id">
+                            <t t-set="main_signer" t-value="signer"/>
+                        </t>
+                        <t t-elif="not other_signer">
+                            <t t-set="other_signer" t-value="signer"/>
+                        </t>
+                    </t>
+
+                    <!-- Display the two signatures in a row -->
+                    <div class="row w-100">
+                        <t t-if="other_signer and other_signer.signature">
+                            <div class="col-6 text-center">
+                                <h5>Signature</h5>
+                                <img t-att-src="image_data_uri(other_signer.signature)" style="max-height: 6rem; max-width: 100%;" />
+                                <p t-field="other_signer.partner_id.name" />
+                            </div>
+                        </t>
+                        <t t-if="main_signer and main_signer.signature">
+                            <div class="col-6 text-center">
+                                <h5>Signature</h5>
+                                <img t-att-src="image_data_uri(main_signer.signature)" style="max-height: 6rem; max-width: 100%;" />
+                                <p t-field="main_signer.partner_id.name" />
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </section>
+
+
+        </xpath>
+    </template>
+</odoo>

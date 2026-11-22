@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <record id="sign_vrtl.sign_provider_bankid" model="sign.provider">
+        <field name="code">bankid</field>
+    </record>
+</odoo>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SEKTION 4: Signera och arkivera
+         ═══════════════════════════════════════════════════════════════════ -->
+
+    <record id="slide_category_sign_s4" model="slide.slide">
+        <field name="name">4. Signera och arkivera</field>
+        <field name="is_category" eval="True"/>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="sequence">300</field>
+    </record>
+
+    <record id="slide_sign_s4_01" model="slide.slide">
+        <field name="name">Signera, bevisvärde och arkivering</field>
+        <field name="sequence">310</field>
+        <field name="slide_category">article</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.50</field>
+        <field name="html_content" type="html">
+<section class="s_cover o_cc o_cc3 pt160 pb160">
+    <div class="container">
+        <h1 class="display-3-fs" style="text-align: center;">Signera, bevisvärde och arkivering</h1>
+        <p class="lead" style="text-align: center;">När alla signerat är jobbet inte klart. Nu ska det gå att hitta igen, om ett år, av någon annan.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt64 pb40">
+    <div class="container s_allow_columns">
+        <h2>Att signera</h2>
+        <ol>
+            <li>Öppna dokumentet som väntar på dig — antingen i signering, eller via länken i mejlet.</li>
+            <li>Läs igenom. Kontrollera belopp, datum, parter och villkor.</li>
+            <li>Fyll i de fält som din roll ska fylla i.</li>
+            <li>Placera din signatur i signaturfältet.</li>
+            <li>Tryck <strong>Sign document</strong>.</li>
+            <li>Bekräftelsen visas — dokumentet är signerat.</li>
+        </ol>
+        <p class="small text-muted">Länken i mejlet är personlig och får inte vidarebefordras. Den som får länken kan signera i ditt ställe.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Vad signeringen bevisar</h2>
+        <p>Varje underskrift registreras med tre saker:</p>
+        <ul>
+            <li><strong>Vem</strong> — vilken mottagare i förfrågan som skrev under, och när</li>
+            <li><strong>När</strong> — datum och klockslag, sparat på underskriften</li>
+            <li><strong>Vad</strong> — ett kontrollvärde som räknas fram ur dokumentet och underskriften i en obruten nummerserie</li>
+        </ul>
+        <p>Ändras dokumentet i efterhand stämmer inte längre kontrollvärdet, och då syns det. Det är detta som gör att en digital signering håller — inte utseendet på underskriften.</p>
+        <p class="small text-muted">Systemet kontrollerar kontrollvärdet löpande och flaggar en förfrågan om något ändrats efter signeringen.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb40">
+    <div class="container s_allow_columns">
+        <h2>Arkivera det signerade</h2>
+        <p>När status är <strong>Signerad</strong> är dokumentet klart att arkiveras:</p>
+        <ol>
+            <li>Öppna förfrågan och ladda ner den signerade PDF:en — den innehåller alla underskrifter.</li>
+            <li>Lägg den i dokumenthanteringen, i rätt mapp för kund eller ärende.</li>
+            <li>Koppla den till ärendet eller avtalet det gäller, så att den hittas där någon letar.</li>
+            <li>Lämna signeringsförfrågan kvar som spår — den visar hela kedjan.</li>
+        </ol>
+        <p class="small text-muted">Lägg dokumentet där det hör hemma, inte bara i signering. Den som letar efter avtalet om två år letar i kundmappen, inte i signeringslistan.</p>
+    </div>
+</section>
+
+<section class="s_text_block pt32 pb64">
+    <div class="container s_allow_columns">
+        <h2>Behåll spåret</h2>
+        <p>Det signerade dokumentet är beviset. Men historiken — vem som skapade förfrågan, när den skickades, vem som signerade först, och om den avbröts — är också värdefull. Den visar att processen gick rätt till.</p>
+        <p>Därför: radera aldrig en signeringsförfrågan bara för att dokumentet är arkiverat. Avbryt den i stället — då stängs länkarna men historiken finns kvar.</p>
+    </div>
+</section>
+
+<section class="s_call_to_action o_cc o_cc5 pt48 pb48">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h3>Arkivera där någon letar</h3>
+                <p class="lead">Ett signerat avtal som bara finns i signeringslistan är i praktiken borta om två år.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        </field>
+        <field name="description">Signera ett dokument, vad underskriften registrerar, hur du arkiverar det signerade dokumentet där det hittas — och varför historiken ska sparas.</field>
+    </record>
+
+    <record id="slide_sign_s4_02" model="slide.slide">
+        <field name="name">🧪 Testa dina kunskaper — Signera och arkivera</field>
+        <field name="sequence">340</field>
+        <field name="slide_category">quiz</field>
+        <field name="channel_id" ref="sign_onboarding.slide_channel_sign"/>
+        <field name="is_published" eval="True"/>
+        <field name="is_preview" eval="True"/>
+        <field name="completion_time">0.25</field>
+        <field name="quiz_first_attempt_reward">100</field>
+        <field name="quiz_second_attempt_reward">75</field>
+        <field name="quiz_third_attempt_reward">50</field>
+        <field name="quiz_fourth_attempt_reward">25</field>
+        <field name="description">Kontrollera att du vet vad underskriften registrerar och hur du arkiverar rätt.</field>
+    </record>
+
+    <record id="slide_sign_s4_02_q1" model="slide.question">
+        <field name="question">Vad registreras när någon signerar?</field>
+        <field name="sequence">1</field>
+        <field name="slide_id" ref="slide_sign_s4_02"/>
+    </record>
+    <record id="slide_sign_s4_02_q1_a1" model="slide.answer">
+        <field name="text_value">Vem som signerade, när, och ett kontrollvärde för dokumentet</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Ändras dokumentet stämmer inte värdet, och då syns det.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q1"/>
+    </record>
+    <record id="slide_sign_s4_02_q1_a2" model="slide.answer">
+        <field name="text_value">Bara en bild av signaturen</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">En bild är just det som inte räcker som bevis.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q1"/>
+    </record>
+    <record id="slide_sign_s4_02_q1_a3" model="slide.answer">
+        <field name="text_value">Ingenting — underskriften ritas bara in i PDF:en</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Då vore beviset värdelöst. Registreringen är poängen.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q1"/>
+    </record>
+
+    <record id="slide_sign_s4_02_q2" model="slide.question">
+        <field name="question">Varför får du inte vidarebefordra signeringslänken?</field>
+        <field name="sequence">2</field>
+        <field name="slide_id" ref="slide_sign_s4_02"/>
+    </record>
+    <record id="slide_sign_s4_02_q2_a1" model="slide.answer">
+        <field name="text_value">Den som får länken kan signera i ditt ställe</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Länken är personlig — därför står varningen i mejlet.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q2"/>
+    </record>
+    <record id="slide_sign_s4_02_q2_a2" model="slide.answer">
+        <field name="text_value">Länken slutar fungera om den skickas vidare</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Den fungerar — det är precis det som är risken.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q2"/>
+    </record>
+    <record id="slide_sign_s4_02_q2_a3" model="slide.answer">
+        <field name="text_value">Det räknas som skräppost</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Problemet är behörigheten, inte leveransen.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q2"/>
+    </record>
+
+    <record id="slide_sign_s4_02_q3" model="slide.question">
+        <field name="question">Var ska det signerade dokumentet ligga?</field>
+        <field name="sequence">3</field>
+        <field name="slide_id" ref="slide_sign_s4_02"/>
+    </record>
+    <record id="slide_sign_s4_02_q3_a1" model="slide.answer">
+        <field name="text_value">I dokumenthanteringen, i mappen för kund eller ärende</field>
+        <field name="sequence">1</field>
+        <field name="is_correct" eval="True"/>
+        <field name="comment">Rätt. Det är där någon letar om två år.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q3"/>
+    </record>
+    <record id="slide_sign_s4_02_q3_a2" model="slide.answer">
+        <field name="text_value">Bara i signeringslistan</field>
+        <field name="sequence">2</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">Då är det i praktiken borta för den som letar.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q3"/>
+    </record>
+    <record id="slide_sign_s4_02_q3_a3" model="slide.answer">
+        <field name="text_value">I din egen e-postinkorg</field>
+        <field name="sequence">3</field>
+        <field name="is_correct" eval="False"/>
+        <field name="comment">En inkorg är ingen arkivering — och ingen annan hittar dit.</field>
+        <field name="question_id" ref="slide_sign_s4_02_q3"/>
+    </record>
+
+    </data>
+</odoo>

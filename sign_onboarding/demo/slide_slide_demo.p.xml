@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data noupdate="1">
+
+    <!-- Testdata: lektioner i kursen "Signering i Vertel".
+         Laddas ENDAST mot *_test-databaser (repo_apply: –without-demo=all
+         för produktion). Riktigt innehåll ligger i data/slide_slides_s1..s5.xml. -->
+    <record id="slide_sign_0" model="slide.slide">
+        <field name="name">Översikt: signeringsflödet</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Från utkast till signerat dokument.&lt;/p&gt;</field>
+        <field name="sequence">500</field>
+    </record>
+    <record id="slide_sign_1" model="slide.slide">
+        <field name="name">Skapa en signeringsförfrågan</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Dokument, mottagare och roller, signaturfält.&lt;/p&gt;</field>
+        <field name="sequence">510</field>
+    </record>
+    <record id="slide_sign_2" model="slide.slide">
+        <field name="name">Signera ett dokument</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Personlig länk, fält, signering och tidsstämpling.&lt;/p&gt;</field>
+        <field name="sequence">520</field>
+    </record>
+    <record id="slide_sign_3" model="slide.slide">
+        <field name="name">Arkivera och spåra</field>
+        <field name="channel_id" ref="slide_channel_sign"/>
+        <field name="slide_category">article</field>
+        <field name="is_published" eval="True"/>
+        <field name="description">&lt;p&gt;Status, bevisvärde och koppling till ärendet.&lt;/p&gt;</field>
+        <field name="sequence">530</field>
+    </record>
+
+</data></odoo>

@@ -1,0 +1,20 @@
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+{
+    "name": "Sign Report",
+    "summary": """
+        Sign docs based on qweb report
+    """,
+    "version": "1.0.0",
+    "license": "AGPL-3",
+    "website": "https://vertel.se/apps/odoo-sign/sign_report",
+    "depends": ["sign_oca", 'sale'],
+    "data": [
+        "views/sign_oca_template_view.xml",
+        "views/sign_oca_request_view.xml",
+    ],
+    "demo": [
+        "demo/sale_order_sign_role.xml",
+        "demo/sign_oca_template.xml",
+    ],
+}

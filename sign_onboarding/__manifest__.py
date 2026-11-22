@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Signering i Vertel',
-    'version': '18.0.2.1.0',
+    'version': '2.1.0',
     'summary': 'Onboardingskurs: elektronisk signering',
     'description': """
 Lär dig skicka dokument för signering, följa status och arkivera det signerade.
